@@ -1,0 +1,19 @@
+Individual Status Report 1
+Ted Salmon 
+
+Last Week's Goals:
+Complete assigned milestone on time 
+
+Individual progress:
+- Did: I made a Trello account and created a board for the team\'92s progress to be visually sound.
+- What worked: Our communication through discord worked very well, all members were active.
+- Learned: How great Trello is, as well as getting to know my team members.
+- Troubles: Time management with work and school balance.\
+- Stuck: not much to be stuck on, but I believe git will be the most troubling software.
+
+Plans: 
+- Complete both status reports.
+- Complete FLASK application.
+- Seek report from members on Tuesday.
+- Complete Milestone: Ethical considerations and front-end design.
+ 
