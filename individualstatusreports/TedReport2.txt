@@ -1,0 +1,29 @@
+Individual Status Report 2
+Ted Salmon 
+
+Last Week's Goals:
+- Make sure git repository was up and running with appropriate folders
+- Complete assigned milestone on time 
+
+
+Individual progress:
+Did: 
+- Created a login and user registration wireframe for our kiwi application.
+- Created and cloned a local repository to git in order for our team to have a working base station.
+What worked: 
+- Our communication through discord worked very well, all members were active in the status reports and kiwi implementations. 
+Learned: 
+- How easy it is to create wireframes on the fly.
+- Relearned how to clone a repository and push to main.
+Troubles: 
+- Time management with work and school balance.
+Stuck: 
+- Briefly stuck on git commands.
+- Basic design of wireframes.
+
+
+Plans: 
+- Complete both status reports.
+- Complete FLASK application.
+- Seek rapport from members on Tuesday.
+- Complete Milestone: Dataflow diagrams.
