@@ -1,0 +1,11 @@
+We made decent progress this week as a team. Most of us completed our tasks this
+week in a timely manner but there seemed to be a lack of communication again that will
+be addressed. Overall we got the work done but moving forward there needs to be more
+organization in the future. We really just need to get on top of the work lord and start
+working ahead this week.
+Our tasks for the coming week should be to assign the work for our project. We need to
+pick who will perform what tasks (HTML, Python, Front-end, Back-end, etc.). We also
+need to start the testing phase of our software.
+Our team plans to meet this Thursday to work on our next project assignment dealing
+with Testing. As the week goes on we plan to discuss some ideas with each other
+concerning how we want to go about this.
