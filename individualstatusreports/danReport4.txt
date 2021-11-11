@@ -1,0 +1,4 @@
+Status report 4: 
+Section 1: Our team plans to meet this Thursday to work on our next project assignment dealing with Testing. As the week goes on we plan to discuss some ideas with each other concerning how we want to go about this.
+Section 2: This week we made progress on everyone finally figuring out git hub and we completed the weekly sprint. We have the outline of how we are going to start the project  
+Section 3: This coming week along with finishing the sprint for the week we are going to find a time where we can all meet in the library and work on getting the project started. We want to have a home page made in HTML and get the basics of the project going so that we will not be drowning towards the end of the semester. 

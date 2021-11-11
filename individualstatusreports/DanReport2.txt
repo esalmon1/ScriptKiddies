@@ -1,0 +1,14 @@
+Status report 2:
+Section 1: In looking at this week's agenda it seems to be like we do not have a whole
+ton of specific group work but I would like to keep adding the necessary files to our
+repository in order to keep track of everything. We will work together on making the
+base of the program. The fundamentals that will consist of what we need for the project.
+Section 2: This week we worked together to construct a wireframe that detailed a
+majority of the features of our application. We did this on draw.io and we divided the
+work up evenly amongst ourselves. We also thought that we should build a logo for our
+discussion board and a name that we are going to use for it. We decided upon “Kiwi”
+and built an attention grabbing yet modern logo.
+Section 3: we will have more work to do this week compared to last week. For this week
+we need to develop an effective data flow diagram to represent the app. This is really
+important so that everyone who will be coding and developing the project will be able to
+have the same reference point.

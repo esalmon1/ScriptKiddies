@@ -1,0 +1,15 @@
+Status Report 1:
+Section 1:
+Section 2: This week we worked on creating our project board where we will have out
+incoming and outgoing project tasks and their completion on them. We ran into a little trouble
+understanding the instructions of what the assignment was asking for but with proper
+communication we figured it out. We did a good job splitting up the work that we had to get
+done, evenly amongst ourselves and we deemed that the last person to finish their part of the
+project would have to be the one who turns it in for the group. WE made alot of user stories this
+week that helped define the actions we would need to accomplish for our customers to
+experience the most satisfaction. We still need to fully establish a git repository for the team to
+use and make changes on.
+Section 3: in looking at this weeks agenda it seems to be like we do not have a whole
+ton of specific group work but I would like to keep adding the necessary files to our repository in
+order to keep track of everything. We will work together on making the base of the program. The
+fundamentals that will consist of what we need for the project.
