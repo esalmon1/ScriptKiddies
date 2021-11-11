@@ -7,16 +7,26 @@
         <meta name="description" content="KIWI Discussion Board">
         <title>KIWI</title>
         <!-- styles -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     </head>
     <body>
+      <header>
+          <div class = "headers">
+              <div class = "homeNav">
+                  <h1>KIWI</h1>
+                  <!-- NAVIGATION BAR -->
         <nav>
-         <a href="{{ url_for('index') }}"> Home</a> ||
-         <a href="{{ url_for('new_note') }}"> Create KIWI</a>
+            <ul>
+                    <li><a href="{{ url_for('index') }}"> Home</a></li>
+                    <li><a href="{{ url_for('new_note') }}"> Create KIWI</a></li>
+                    <li><a href="/notes"> View your KIWIS </a></li>
+            </ul>
         </nav>
-        <h1>KIWI</h1>
+          </div>
+          </div>
+      </header>
         <h2>Hello, {{user.name}} </h2>
-        <nav> <a href="/notes"> View your KIWIS </a> </nav>
+
 
         <h3>Boards</h3>
 
