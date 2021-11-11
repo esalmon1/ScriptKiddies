@@ -11,7 +11,7 @@
     <body>
         <nav>
          <a href="{{ url_for('index') }}"> Home</a> ||
-         <a href="{{ url_for('get_notes') }}"> My Notes</a>
+         <a href="{{ url_for('get_notes') }}"> My Posts</a>
         </nav>
         <h1>Your Posts</h1>
 
@@ -25,13 +25,16 @@
 
                 <td>
                 <td>
-                <textarea name="noteText"  rows="10" cols="69" >
+                <form>
+                    <textarea name="noteText"  rows="10" cols="69" >
                     {% if note %}
                        {{note.text}}
                     {% else %}
                         Get Fruity...
                     {% endif %}
                     </textarea>
+                </form>
+
 
                 <td>
 
