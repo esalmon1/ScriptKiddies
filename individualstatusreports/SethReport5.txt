@@ -1,0 +1,5 @@
+1. This coming week along with finishing the sprint for the week we are going to find a time where we can all meet in the library and work on getting the project started. We want to have a home page made in HTML and get the basics of the project going so that we will not be drowning towards the end of the semester.
+
+2. We worked on the solor styling of our website as well as making sure the webstie looks great. 
+
+3. We will be adding different features using the existing route. While also making sure that the CSS styles run through.
