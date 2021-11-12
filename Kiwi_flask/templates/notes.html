@@ -3,13 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App - View your Notes</title>
+        <meta name="description" content="KIWI Discussion Board">
+        <title>KIWI</title>
         <!-- styles -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='notes.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     </head>
     <body>
-        <div class = "homeNav">
+      <header>
+          <div class = "headers">
+              <div class = "homeNav">
                   <h1>KIWI</h1>
                   <!-- NAVIGATION BAR -->
         <nav>
@@ -20,6 +22,8 @@
             </ul>
         </nav>
           </div>
+          </div>
+      </header>
         <h1>Your Posts</h1>
 
         <table>
@@ -34,8 +38,7 @@
                 <td>
                 <form>
                     <textarea name="noteText"  rows="10" cols="69" >
-                    {% if note %}
-                       {{note.text}}
+                    {% if note %}{{note.text}}
                     {% else %}
                         Get Fruity...
                     {% endif %}
@@ -51,6 +54,7 @@
                     <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
                           <input type="submit" value="Delete">
                     </form>
+
                 </td>
             </tr>
             {% endfor %}

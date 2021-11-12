@@ -3,13 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>Create a KIWI Post</title>
+        <meta name="description" content="KIWI Discussion Board">
+        <title>KIWI</title>
         <!-- styles -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='new.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     </head>
     <body>
-        <div class = "homeNav">
+      <header>
+          <div class = "headers">
+              <div class = "homeNav">
                   <h1>KIWI</h1>
                   <!-- NAVIGATION BAR -->
         <nav>
@@ -20,22 +22,24 @@
             </ul>
         </nav>
           </div>
+          </div>
+          <h2><label>Title</label></h2>
+      </header>
 {% if note %}
        <form action="{{ url_for('update_note' , note_id=note.id) }}" method="post">
 {% else %}
         <form action="new" method="post">
 {% endif %}
-            <h1><label>Kiwi Title </label></h1>
-            <input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></>
-            <h2><label>Kiwi Content </label></h2>
             <p>
-                <textarea name="noteText"  rows="10" cols="69" >
-                    {% if note %}
-                       {{note.text}}
-                    {% else %}
-                        Get Fruity...
-                    {% endif %}
-                    </textarea>
+                <input type="text" value="Get fruity..."
+                        onblur="if(this.value=='')this.value='Get fruity...';"
+                       onfocus="if(this.value=='Get fruity...')this.value='';" />
+            </p>
+            <h2><label>What's on your mind</label></h2>
+            <p>
+                <input type="text" value="Get tooty fruity..."
+                        onblur="if(this.value=='')this.value='Get tooty fruity...';"
+                       onfocus="if(this.value=='Get tooty fruity...')this.value='';" />
             </p>
             <h3>
                 {% if note %}
