@@ -56,9 +56,13 @@ h3 {
     font-family: 'Work Sans', sans-serif;
 }
 
-.headerNote{
+.headerNote {
     font-family: 'Work Sans', sans-serif;
     color: black;
+}
+
+body {
+    background-color: grey;
 }
 
 /* End Navigation Bar */
