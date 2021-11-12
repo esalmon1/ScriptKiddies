@@ -44,8 +44,8 @@ def get_note(note_id):
 def new_note():
 
     if request.method == 'POST':
-        title = request.form['title']
-        text = request.form['noteText']
+        title = request.form.get['title']
+        text = request.form.get['noteText']
         from datetime import date
         today = date.today()
         today = today.strftime("%m-%d-%Y")
