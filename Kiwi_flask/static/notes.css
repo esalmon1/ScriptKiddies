@@ -1,0 +1,49 @@
+/* Navigation Bar */
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav {
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+.headers {
+    background-color: #8ee53f;
+}
+
+.homeNav {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+}
+
+h2 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+h3 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* End Navigation Bar */
