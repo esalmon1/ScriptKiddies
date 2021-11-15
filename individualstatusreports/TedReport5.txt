@@ -1,0 +1,33 @@
+Individual Status Report 5
+Ted Salmon 
+
+Last Week's Goals:
+- complete milestone on time 
+
+Individual progress:
+Did: 
+- Implemented a navigation bar to all but one website pages.
+- Created a KIWI text box and title box with disappearing text.
+- Cleaned up home screen.
+- Cleaned and formatted code. 
+- Pulled and pushed individual work from local to GitHub.
+
+Learned: 
+- How to make disappearing text within a text box.
+- Troubleshooting and debugging various situations of feature adding.
+- The frustration of working on the same body of code with other people. Can get confusing when working at the same time. 
+
+Troubles: 
+- Time management with work and school balance.
+
+Stuck: 
+- Creating CSS files and making them 'talk' with other files.
+- Flask troubles, won't show individual notes but will let me edit them.
+
+
+Plans: 
+- Work thoroughly on creating/adding features.
+- Complete both status reports.
+- Complete FLASK application and fixing notes issue.
+- Seek rapport from members on Tuesday.
+- Complete Milestone: Adding features.
