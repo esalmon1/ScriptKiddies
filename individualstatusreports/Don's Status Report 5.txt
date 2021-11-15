@@ -1,0 +1,18 @@
+﻿Donovan Brite
+
+
+Individual Status Report 5
+
+
+        Goals:
+* Brainstorm ideas
+* Create Minimum Viable Product
+* Discuss Design Ideas and how to implement functionalities
+* Begin CSS designs for website
+* Update Trello Workspace
+
+
+I made good progress this week on our software. I made the new css file to implement some of the design language we had previously discussed as well as used some of the functionality from the flask app activities to start implementing more functionality. The trouble came when code was added and not tested properly. I attempted to fix this but could not as I was not aware of what was changed.
+
+
+Our tasks for the coming week are going to be crucial. We need to begin implementing the extra features we talked about and there is still terrible communication between members of our team. There needs to be a better response to people who have a question or to any issues that may occur with the software. It is unacceptable to just ignore messages and leave things in a state of disarray.

@@ -1,0 +1,16 @@
+﻿Donovan Brite
+
+
+Individual Status Report 4
+
+
+        Goals:
+* Brainstorm ideas
+* Testing
+* User stories/acceptance criteria
+
+
+We made decent progress this week as a team. Most of us completed our tasks this week in a timely manner and communication was better this time around . I did the user story and acceptance criteria for emojis/stickers and created features and scenarios for my function. Overall we got the work done but moving forward we need to crack down more on implementing these ideas into our code
+
+
+Our tasks for the coming week should be to assign the work for our project. We need to start our base structure for the website so that all we have left is to implement the functions. We also need to start the testing phase of our software.

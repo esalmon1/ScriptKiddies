@@ -1,0 +1,17 @@
+﻿Donovan Brite
+
+
+Individual Status Report 2
+
+
+        Goals:
+* Brainstorm ideas
+* Create Wireframes
+* Discuss Design Ideas and how to implement functionalities
+* Update Trello Workspace
+
+
+We made great progress this week as a team. Everyone gave out some great ideas for designs and functionalities for our app while creating our wireframes. I personally made the wireframes for viewing posts and creating new posts. This week we had better communication as a team and our finished wireframes all looked great. Everyone stayed on task and got what they needed done. The only trouble we had this week was trying to agree on how our app should look across the board (design language) and finding ways to be sure we all followed this design language with each of our individual wireframes.
+
+
+Our tasks for the coming week should be to assign the work for our project. We need to pick who will perform what tasks (HTML, Python, Front-end, Back-end, etc.). We also need to start looking into our data flow diagrams and thinking about how we will implement the functionalities we put on our Trello Board.

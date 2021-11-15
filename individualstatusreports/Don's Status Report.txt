@@ -1,0 +1,20 @@
+﻿Donovan Brite
+
+
+Status Report
+
+
+        Goals:
+* Brainstorm ideas
+* Create Discord Server for Group
+* Create Github Repository
+* Create Trello Workspace
+
+
+We made great progress this week as a team. Everyone gave out some great ideas for features and functionalities for our app. The user stories we created on Trello will be very helpful in the coming weeks as we begin to implement these features. One thing that needs to be worked on is communication among the group as a whole. I think there needs to be at least one virtual meeting per week so we can discuss our progress as a group.
+
+
+Our tasks for the coming week should be to assign the work for our project. We need to pick who will perform what tasks (HTML, Python, Front-end, Back-end, etc.).
+
+
+Team Report: Our team will meet virtually over discord every week before a task for our project to discuss as a whole how we will complete the work. We plan to do this before the deadline so that we have an ample amount of time to complete the work.
