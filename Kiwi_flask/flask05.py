@@ -6,6 +6,8 @@ from flask import Flask   # Flask is the web app that we will customize
 from flask import request
 from flask import render_template
 from flask import redirect, url_for
+from KiwiForms import SearchForm
+
 
 
 app = Flask(__name__)     # create an app
@@ -13,6 +15,8 @@ app = Flask(__name__)     # create an app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_note_app.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+app.config['SECRET_KEY'] = 'SE3155'
 
 #  Bind SQLAlchemy db object to this Flask app
 db.init_app(app)
@@ -83,6 +87,21 @@ def delete_note(note_id):
     db.session.commit()
 
     return redirect(url_for('get_notes'))
+
+@app.route('/search', methods=['POST'])
+def search():
+     form = SearchForm()
+     posts = Note.query
+     if form.validate_on_submit():
+         Note.results = form.results.data
+         posts = posts.filter(Note.text.like('%' + Note.results + '%'))
+         posts = posts.order_by(Note.title).all()
+         return render_template("search.html", form=form, results=Note.results , posts=posts)
+
+@app.context_processor
+def base():
+    form = SearchForm()
+    return dict (form=form)
 
 app.run(host=os.getenv('IP', '127.0.0.1'),port=int(os.getenv('PORT', 5000)),debug=True)
 
