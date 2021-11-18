@@ -20,6 +20,13 @@
                     <li><a href="{{ url_for('new_note') }}"> Create KIWI</a></li>
                     <li><a href="/notes"> View your KIWIS </a></li>
             </ul>
+            <form method="POST" action="{{ url_for('search')}}" class="searching">
+                {{ form.hidden_tag() }}
+                <input class="form-search" type="search" placeholder="Search KIWI's Here" aria-label="Search",
+                       name="results">
+                <button class="search-btn" type="submit">Search</button>
+
+            </form>
         </nav>
           </div>
           </div>
