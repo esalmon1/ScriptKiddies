@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="KIWI Discussion Board">
+        <title>KIWI</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    </head>
+    <body>
+      <header>
+          <div class = "headers">
+              <div class = "homeNav">
+                  <h1>KIWI</h1>
+                  <!-- NAVIGATION BAR -->
+        <nav>
+            <ul>
+                    <li><a href="{{ url_for('index') }}"> Home</a></li>
+                    <li><a href="{{ url_for('new_note') }}"> Create KIWI</a></li>
+                    <li><a href="/notes"> View your KIWIS </a></li>
+            </ul>
+            <form method="POST" action="{{ url_for('search')}}" class="searching">
+                {{ form.hidden_tag() }}
+                <input class="form-search" type="search" placeholder="Search KIWI's Here" aria-label="Search",
+                       name="results">
+                <button class="search-btn" type="submit">Search</button>
+
+            </form>
+        </nav>
+          </div>
+          </div>
+      </header>
+
+
+    <br/>
+    <h1>Search Results</h1>
+    <h2>{{ results }}</h2>
+    <br/>
+
+    {% for post in posts %}
+      <a href="{{ url_for('get_note', note_id=post.id)}}">
+      {{ post.title }}</a></br>
+    {% endfor %}
+
+ </body>
+</html>

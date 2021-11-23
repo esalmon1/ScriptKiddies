@@ -10,17 +10,25 @@
     </head>
     <div class="topnav">
     <nav>
+
         <a href="{{url_for('index')}}">Home</a>
         <a href="{{url_for('get_notes')}}">My Kiwis</a>
         <a href="{{url_for('new_note')}}">Add Kiwi</a>
+         <a href ="{{url_for('search')}}"> Search for KIWI</a>
+        <p><input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></p>
+
     {% if user %}
             <a href="{{url_for('logout')}}">Logout</a>
     {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
     {% endif %}
+
         </nav>
+
+            </form>
     </div>
+
     <h1>
         {{user}}, Here are your fruity Kiwis!
     </h1>

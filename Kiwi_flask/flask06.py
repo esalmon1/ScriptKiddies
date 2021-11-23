@@ -16,6 +16,7 @@ from flask import session
 from forms import LoginForm
 from models import Comment as Comment
 from forms import RegisterForm, LoginForm, CommentForm
+from forms import SearchForm
 
 app = Flask(__name__)  # create an app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_note_app.db'
@@ -31,6 +32,23 @@ with app.app_context():
 # @app.route is a decorator. It gives the function "index" special powers.
 # In this case it makes it so anyone going to "your-url/" makes this function
 # get called. What it returns is what is shown as the web page
+@app.route('/search', methods=['POST'])
+def search():
+    form = SearchForm()
+    posts = Note.query
+    if form.validate_on_submit():
+        Note.results = form.results.data
+        posts = posts.filter(Note.text.like('%' + Note.results + '%'))
+        posts = posts.order_by(Note.title).all()
+        return render_template("search.html", form=form, results=Note.results, posts=posts)
+
+
+@app.context_processor
+def base():
+    form = SearchForm()
+    return dict(form=form)
+
+
 @app.route('/notes/<note_id>/comment', methods=['POST'])
 def new_comment(note_id):
     if session.get('user'):

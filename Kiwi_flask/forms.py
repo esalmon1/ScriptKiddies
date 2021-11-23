@@ -6,6 +6,11 @@ from models import User
 from database import db
 
 
+#Search Form
+class SearchForm(FlaskForm):
+    results = StringField('Results', validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
 class RegisterForm(FlaskForm):
     class Meta:
         csrf = False
