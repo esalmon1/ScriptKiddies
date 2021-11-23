@@ -1,0 +1,29 @@
+Individual Status Report 3
+Ted Salmon 
+
+Last Week's Goals:
+- Complete Dataflow diagram worksheet
+- Complete assigned milestone on time 
+
+
+Individual progress:
+Did: 
+- Designated models in application and respected attributes and data types
+- Edited group work accordingly 
+What worked: 
+- Our communication through discord worked very well, all members were active in the status reports and data flow diagram worksheet.
+Learned: 
+- relearned what a dataflow diagram was.
+- relearned basic SQL commands, and data types
+Troubles: 
+- Time management with work and school balance.
+Stuck: 
+- Was confused on the task at hand with SQL and what attributes and relationships were 
+- Submission times, communication error
+
+
+Plans: 
+- Complete both status reports.
+- Complete FLASK application.
+- Seek rapport from members on Tuesday.
+- Complete Milestone: Testing.

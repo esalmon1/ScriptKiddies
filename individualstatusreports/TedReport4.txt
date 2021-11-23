@@ -1,0 +1,30 @@
+Individual Status Report 4
+Ted Salmon 
+
+Last Week's Goals:
+- complete milestone on time 
+
+Individual progress:
+Did: 
+- Pulled and pushed individual work from local to GitHub
+- Completed a section of milestone.
+
+Learned: 
+- More in-depth on how to utilize git and pycharm.
+- Troubleshooting and debugging various situations of testing 
+- How to utilize local database system SQLite 
+Troubles: 
+- Time management with work and school balance.
+- Flask 4 took me longer than expected. Flask stopped working.
+Stuck: 
+- Currently stuck on Flask 4.
+- Flask troubles, won't turn on when VE is turned on.
+
+
+Plans: 
+- Redo wireframes to look like a website.
+- Start working on app website code, get framework.
+- Complete both status reports.
+- Complete FLASK application (late).
+- Seek rapport from members on Saturday.
+- Complete Milestone: Testing.
