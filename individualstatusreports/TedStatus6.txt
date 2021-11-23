@@ -1,0 +1,25 @@
+Individual Status Report 6
+Ted Salmon
+
+Last Week's Goals
+- Complete milestone on time
+
+Individual Progress
+Did: 
+- Always start with a Pull
+- Completed a section from milestone; testing.
+- Implemented own flask06.py for our previous work
+
+Learned: 
+- How to implement a search function
+- How to pull without saving it, but storing it to backup your previous work then pull it to repository 
+
+Troubles:
+- Unfortunately my flask won't run. I believe its to do with my flask installation? I'm seeking help tomorrow 
+Stuck:
+- With every project that is requiring me to run flask to show my work.
+
+Plans:
+- Get flask to run 
+- Complete Milestone: Prepare Presentation and Final Submission 
+
