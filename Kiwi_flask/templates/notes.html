@@ -51,13 +51,12 @@
                     </form>
 
                 <div class="container">
-                    <form>
-                        <a href="{{url_for('countvotes', note_id=note.id)}}"><button class="btn btn-default">Up Vote.</button></a>
-                        <a href="{{url_for('countvotes', note_id=note.id)}}"><button class="btn btn-default">Down Vote.</button></a>
+                    <form method ="post" action ="/">
+                        <button type = "button">Up Vote.</button>
+                        <button type = "button">Up Vote.</button>
                     </form>
                 </div>
-
-
+not
                 </td>
             </tr>
             {% endfor %}
