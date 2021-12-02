@@ -138,6 +138,19 @@ def delete_note(note_id):
         return redirect(url_for('login'))
     return redirect(url_for('get_notes'))
 
+@app.route('/notes/vote/<note_id>', methods=['POST'])
+def countvotes(note_id, count=None):
+    # check if a user is saved in sessing
+
+    if session.get('user'):
+       upcount = int(input(request.form['Up Vote.']))
+       downcount = int(input(request.form['Down Vote.']))
+
+           
+
+    else:
+        return redirect(url_for('login'))
+    return redirect(url_for('get_notes'))
 
 @app.route('/notes/edit/<note_id>', methods=['GET', 'POST'])
 def update_note(note_id):
