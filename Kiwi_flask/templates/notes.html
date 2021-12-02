@@ -7,7 +7,9 @@
         <title>UNCC Notes App - View your Notes</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
     </head>
+
     <div class="topnav">
     <nav>
 
@@ -26,13 +28,13 @@
 
         </nav>
 
-            </form>
     </div>
 
     <h1>
         {{user}}, Here are your fruity Kiwis!
     </h1>
     <body>
+
         <h1>Listing notes</h1>
 
         <table>
@@ -49,15 +51,10 @@
                     <form action="{{url_for('delete_note', note_id=note.id)}}" method="post">
                         <input type="submit" value="delete">
                     </form>
+                <a href="vote.html">
+                    <button>Feed Back</button>
+                </a>
 
-                <div class="container">
-                    <form method ="post" action ="/">
-                        <button type = "button">Up Vote.</button>
-                        <button type = "button">Up Vote.</button>
-                    </form>
-                </div>
-not
-                </td>
             </tr>
             {% endfor %}
         </table>
