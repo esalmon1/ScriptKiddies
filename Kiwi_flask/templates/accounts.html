@@ -15,6 +15,9 @@
         <a href="{{url_for('new_note')}}">Add Kiwi</a>
     {% if user %}
             <a href="{{url_for('logout')}}">Logout</a>
+            <div class="topnav-right">
+            <a href="{{url_for('accounts')}}">Account</a>
+            </div>
     {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>

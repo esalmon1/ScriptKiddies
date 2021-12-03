@@ -37,3 +37,7 @@ h2{
   background-color: #50C878;
   color: white;
 }
+/* account button */
+.topnav-right {
+  float: right;
+}
