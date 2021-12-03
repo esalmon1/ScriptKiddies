@@ -15,8 +15,8 @@ import bcrypt
 from flask import session
 from forms import LoginForm
 from models import Comment as Comment
-from forms import RegisterForm, LoginForm, CommentForm
-from forms import SearchForm
+from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm
+
 
 # from flask_socketio import SocketIO, emit
 
@@ -237,7 +237,8 @@ def index():
 def accounts():
     # check if a user is saved in session
     if session.get('user'):
-        return render_template("accounts.html", user=session['user'])
+        form = UpdateAccountForm()
+        return render_template("accounts.html", user=session['user'], form=form)
     return render_template("index.html")
 
 
