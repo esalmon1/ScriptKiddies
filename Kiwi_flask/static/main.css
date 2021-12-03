@@ -28,8 +28,9 @@ h2{
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #4095c6;
+  color: white;
+  transition: all 0.4s;
 }
 
 /* Add a color to the active/current link */
@@ -42,7 +43,7 @@ h2{
   float: right;
 }
 
-
+/* Kiwi interactive buttons */
 a.button3{
 display:inline-block;
 padding:0.3em 1.2em;
@@ -53,7 +54,7 @@ text-decoration:none;
 font-family:'Roboto',sans-serif;
 font-weight:300;
 color:#FFFFFF;
-background-color:#4eb5f1;
+background-color: #50C878;
 text-align:center;
 transition: all 0.2s;
 }
@@ -65,5 +66,14 @@ a.button3{
 display:block;
 margin:0.2em auto;
 }
+}
+/* search bar style */
+.topnav input[type=searchbox] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 
