@@ -16,7 +16,7 @@ from flask import session
 from forms import LoginForm
 from models import Comment as Comment
 from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm
-
+from flask_login import current_user
 
 # from flask_socketio import SocketIO, emit
 
@@ -233,13 +233,20 @@ def index():
 
 
 # account page
-@app.route('/accounts')
+@app.route('/accounts', methods=['GET', 'POST'])
 def accounts():
     # check if a user is saved in session
+    form = UpdateAccountForm()
     if session.get('user'):
-        form = UpdateAccountForm()
         return render_template("accounts.html", user=session['user'], form=form)
-    return render_template("index.html")
+    if form.validate_on_submit():
+        current_user.firstname = form.firstname.data
+        current_user.lastname = form.lastname.data
+        current_user.email = form.email.data
+        db.session.commit()
+        print('account updated')
+        return redirect(url_for('account'))
+    return render_template("accounts.html", user=session['user'], form=form)
 
 
 app.run(host=os.getenv('IP', '127.0.0.1'), port=int(os.getenv('PORT', 5000)), debug=True)
