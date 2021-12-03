@@ -43,17 +43,13 @@
             <tr>
                 <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a>
                 <td>{{ note.date }}</td>
-                <td><button>
-                    <a href="{{ url_for('update_note', note_id=note.id) }}">Edit</a>
-                    </button>
+                <td><a class="button3" href="{{ url_for('update_note', note_id=note.id) }}">Edit</a>
                 <td>
                     <form action="{{url_for('delete_note', note_id=note.id)}}" method="post">
-                    <button type="submit">Delete</button>
+                    <button class="button3" type="submit">Delete</button>
                     </form>
-                <td><button>
-                    <a href="/vote">Jump To Voting Page</a>
-                </td></button>
-
+                <td><a class="button3" href="/vote">Jump To Voting Page</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
