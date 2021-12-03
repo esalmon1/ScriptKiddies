@@ -17,7 +17,8 @@ from forms import LoginForm
 from models import Comment as Comment
 from forms import RegisterForm, LoginForm, CommentForm
 from forms import SearchForm
-from flask_socketio import SocketIO, emit
+
+# from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)  # create an app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_note_app.db'
@@ -48,9 +49,12 @@ def search():
 def base():
     form = SearchForm()
     return dict(form=form)
+
+
 @app.route('/vote')
 def vote():
     return render_template("vote.html")
+
 
 @app.route('/notes/<note_id>/comment', methods=['POST'])
 def new_comment(note_id):
@@ -170,6 +174,7 @@ def update_note(note_id):
     else:
         return redirect(url_for('login'))
 
+
 @app.route('/notes/new', methods=['GET', 'POST'])
 def new_note():
     # check if a user is saved in sessing
@@ -224,6 +229,15 @@ def index():
     # check if a user is saved in sessing
     if session.get('user'):
         return render_template("index.html", user=session['user'])
+    return render_template("index.html")
+
+
+# account page
+@app.route('/accounts')
+def accounts():
+    # check if a user is saved in session
+    if session.get('user'):
+        return render_template("accounts.html", user=session['user'])
     return render_template("index.html")
 
 
