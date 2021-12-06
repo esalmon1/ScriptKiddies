@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="KIWI Discussion Board">
-        <title>KIWI</title>
-        <!-- styles -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    </head>
-    <body>
-      <header>
-          <div class = "headers">
-              <div class = "homeNav">
-                  <h1>KIWI</h1>
-                  <!-- NAVIGATION BAR -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UNCC Notes App">
+    <title>UNCC Notes App - New Note</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+</head>
+
+<body>
+    <div class="topnav">
         <nav>
-            <ul>
-                    <li><a href="{{ url_for('index') }}"> Home</a></li>
-                    <li><a href="{{ url_for('new_note') }}"> Create KIWI</a></li>
-                    <li><a href="/notes"> View your KIWIS </a></li>
-            </ul>
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('get_notes')}}">My Kiwis</a>
+            <a href="{{url_for('new_note')}}">Add Kiwi</a>
+            {% if user %}
+            <a href="{{url_for('logout')}}">Logout</a>
+            <div class="topnav-right">
+                <a href="{{url_for('accounts')}}">Account</a>
+                <a href="{{url_for('search')}}"> Search</a>
+                <input type="searchbox" placeholder="where to?">
+            </div>
+            {% else %}
+            <a href="{{url_for('login')}}">Login</a>
+            <a href="{{url_for('register')}}">Register</a>
+            {% endif %}
         </nav>
-          </div>
-          </div>
-          <h2><label>Post Your KIWI</label></h2>
-      </header>
-{% if note %}
-       <form action="{{ url_for('update_note' , note_id=note.id) }}" method="post">
-{% else %}
+    </div>
+
+    <h1>{{user}}, It's time to get fruity!</h1>
+    {% if note %}
+    <form action="{{ url_for('update_note', note_id=note.id)}}" method="post">
+        {% else %}
         <form action="new" method="post">
-{% endif %}
-          <p><label>Title </label></p><p>
-            <input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></p>
-            <p><label>Note </label></p>
+            {% endif %}
+            <p><label>Kiwi Subject</label></p>
+            <p><input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}" /></p>
+            <p><label>Kiwi</label></p>
             <p>
-                <textarea name="noteText" >
-                    {% if note %}
-                       {{note.text}}
-                    {% else %}
-                        Add your new note here...
-                    {% endif %}
-                    </textarea>
+                <textarea name="noteText" rows="6" cols="0">
+                {% if note %}
+                    {{note.text}}
+                {% endif %}
+
+            </textarea>
             </p>
             <p>
-            <h3>
                 {% if note %}
-                   <input type="submit" value="Update Note"/>
+                <input type="Submit" value="Update Note" />
                 {% else %}
-                   <input type="submit" value="Add Post"/>
+                <input type="Submit" value="Kiwi away" />
                 {% endif %}
-            </h3>
+            </p>
+
         </form>
-       </form>
-    </body>
+
 </html>

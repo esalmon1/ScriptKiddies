@@ -7,28 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
 </head>
     <body>
-        <div class="navdiv">
-            <nav>
-                <a href="{{url_for('index')}}">Home</a> ||
-                <a href="{{url_for('get_notes')}}">My Notes</a> ||
-                <a href="{{url_for('new_note')}}">Add Note</a> ||
-            </nav>
-            {% if user %}
-                <nav>
-                    <a href="{{url_for('logout')}}">Logout</a>
+        <div class="topnav">
+    <nav>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('get_notes')}}">My Kiwis</a>
+        <a href="{{url_for('new_note')}}">Add Kiwi</a>
+    {% if user %}
+            <a href="{{url_for('logout')}}">Logout</a>
+    {% else %}
+            <a href="{{url_for('login')}}">Login</a>
+            <a href="{{url_for('register')}}">Register</a>
+    {% endif %}
+        </nav>
+    </div>
 
-            {% else %}
-                <nav>
-                    <a href="{{url_for('login')}}">Login</a> ||
-                    <a href="{{url_for('register')}}">Register</a>
-                </nav>
-            {% endif %}
-            <body>
-        </div>
-
-        <h1>Welcome {% if user %}{{user}}{% endif %}to the 49er Notes App!</h1>
-
-        <h2>Use this site to maintain and organize your notes.</h2>
+        <h2>Please sign in {% if user %}{{user}}{% endif %}to maintain and organize your notes.</h2>
         <div class="formwrapper">
             <h2 class="title">Login</h2>
             <form method="POST" action="/login">

@@ -1,12 +1,79 @@
 body {
     padding: 30px 30px;
+    background: light grey;
+    }
+h1{
+    color: #50C878;
+}
+h2{
+    color: #50C878;
+    background: white;
+}
+/* Add a black background color to the top navigation */
+
+.topnav {
+  background-color: #50C878;
+  overflow: hidden;
 }
 
-h1 {
-    color: green;
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-h2 {
-    color: gold;
-    background: green;
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #4095c6;
+  color: white;
+  transition: all 0.4s;
 }
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #50C878;
+  color: white;
+}
+/* account button */
+.topnav-right {
+  float: right;
+}
+
+/* Kiwi interactive buttons */
+a.button3{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color: #50C878;
+text-align:center;
+transition: all 0.2s;
+}
+a.button3:hover{
+background-color:#4095c6;
+}
+@media all and (max-width:30em){
+a.button3{
+display:block;
+margin:0.2em auto;
+}
+}
+/* search bar style */
+.topnav input[type=searchbox] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+

@@ -1,0 +1,11 @@
+Seth Adams
+
+Individual Status Report 6
+
+Goals:
+- Implement additional features
+- Discuss design ideas and how to implement functionalities
+- Continue working on CSS designs for the website
+- Update Trello Workspace
+
+Within the past few weeks I have been trying to help out from afar. My flask has not been up to date in a while and I haven't tried hard enough to solve this solution. My group has worked a lot and they deserve most if not all the credit. My communication has been ok if that. I just wanted to say this for my group that has done a lot of the work and they deserve all the credit. I wish I would've tried harder so our application could've looked that much better. I will be there for the presentation on Tuesday and will try my best to look over the code and give a great participation on the presentation.

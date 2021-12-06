@@ -1,3 +1,4 @@
+<!-- temp -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +8,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
 </head>
     <body>
-        <div class="navdiv">
-
+        <div class="topnav">
             <nav>
-                <a href="{{url_for('index')}}">Home</a> ||
-                <a href="{{url_for('get_notes')}}">My Notes</a> ||
-                <a href="{{url_for('new_note')}}">Add Note</a> ||
-            </nav>
+                <a href="{{url_for('index')}}">Home</a>
+                <a href="{{url_for('get_notes')}}">My Kiwis</a>
+                <a href="{{url_for('new_note')}}">Add Kiwi</a>
             {% if user %}
-                <nav>
                     <a href="{{url_for('logout')}}">Logout</a>
 
             {% else %}
-                <nav>
-                    <a href="{{url_for('login')}}">Login</a> ||
+                    <a href="{{url_for('login')}}">Login</a>
                     <a href="{{url_for('register')}}">Register</a>
-                </nav>
-            {% endif %}
-        </div>
-        <h1>Welcome {% if user %}{{user}}{% endif %}to the 49er Notes App!</h1>
 
-        <h2>Use this site to maintain and organize your notes.</h2>
+            {% endif %}
+            </nav>
+        </div>
+        <h1>Welcome {{user}}to Registration!</h1>
+
+        <h2>Use this page to create your username and password</h2>
         <div class="formwrapper">
             <h2 class="title">Register</h2>
             <form method="POST" action="/register">
