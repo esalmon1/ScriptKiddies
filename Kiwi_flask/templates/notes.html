@@ -20,8 +20,14 @@
             <a href="{{url_for('logout')}}">Logout</a>
             <div class="topnav-right">
             <a href="{{url_for('accounts')}}">Account</a>
-                <a href ="{{url_for('search')}}"> Search</a>
-                <input type="searchbox" placeholder="where to?">
+                <form method="POST" action="{{ url_for('search')}}" class="searching">
+                {{ form.hidden_tag() }}
+                <input class="form-search" type="search" placeholder="Search KIWI's Here" aria-label="Search",
+                       name="results">
+                <button class="search-btn" type="submit">Search</button>
+            </form>
+                <!--<a href ="{{url_for('search')}}"> Search</a>
+                <input type="searchbox" placeholder="where to?">-->
             </div>
     {% else %}
             <a href="{{url_for('login')}}">Login</a>

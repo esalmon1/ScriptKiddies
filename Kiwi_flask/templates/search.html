@@ -22,7 +22,7 @@
             </ul>
             <form method="POST" action="{{ url_for('search')}}" class="searching">
                 {{ form.hidden_tag() }}
-                <input class="form-search" type="search" placeholder="Search KIWI's Here" aria-label="Search",
+                <input class="form-search" type="search" placeholder="Search KIWI's Here" aria-label="Search"
                        name="results">
                 <button class="search-btn" type="submit">Search</button>
 
@@ -32,6 +32,7 @@
           </div>
       </header>
 
+
     <br/>
     <h1>Search Results</h1>
     <h2>{{ results }}</h2>
@@ -39,7 +40,7 @@
 
     {% for post in posts %}
       <a href="{{ url_for('get_note', note_id=post.id)}}">
-      {{ post.title }}</a></br>
+      {{ post.title }}</a>
     {% endfor %}
 
  </body>
