@@ -46,12 +46,24 @@
 
     <br/>
     <h1>Search Results</h1>
-    <h3>We Found "{{ results }}" in the following KIWI's</h3>
-    <br/>
+
+
 
     {% for post in posts %}
-      <a href="{{ url_for('get_note', note_id=post.id)}}">
-      {{ post.title }}</a>
+      {% if post.results == form.results.data %}
+    <h3>We Found "{{ results }}" in the following KIWI</h3>
+      {% else %}
+      <h3>Sorry we were unable to find what you were looking for.</h3>
+      {% endif %}
+
+      <dl>
+          <dt> <a href="{{ url_for('get_note', note_id=post.id)}}">
+      {{ post.title }}</a> </dt>
+          <dd>- {{ post.text }}</dd>
+
+      </dl>
+
+
     {% endfor %}
 
  </body>
