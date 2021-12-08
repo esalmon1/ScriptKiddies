@@ -11,12 +11,21 @@
     }
 
   </script>
+  <script type="text/javascript">
+    var click =0;
+    function NegCount()
+    {
+      click-=1
+      document.getElementById('count').innerHTML = click;
+    }
+
+  </script>
   <style type="text/css">
   div
   {
-    width:1520px;
+    width:100%;
     height:300px;
-    background-color:green;
+    background-color:#50C878;
     text-align:center;
   }
   span { font-size:150pt; }
@@ -24,14 +33,14 @@
   </style>
 </head>
 <body>
-<div onclick="ClickCount()"><span id = "count"></span></div>
+<div> <span id = "count"></span></div>
 
 
 <div class="container">
   <h2>Votes</h2>
   <h3>Was this KIWI helpful?</h3>
-  <button>Yes!</button>
-  <button>No!</button>
+  <button onclick="ClickCount()">Yes!</button>
+  <button onclick="NegCount()">No!</button>
 
 </div>
 </body>
