@@ -44,6 +44,14 @@ def search():
         posts = posts.order_by(Note.title).all()
         return render_template("search.html", form=form, results=Note.results, posts=posts)
 
+@app.route('/')
+@app.route('/index')
+def index():
+    # check if a user is saved in session
+    if session.get('user'):
+        return render_template("index.html", user=session['user'])
+    return render_template("index.html")
+
 
 @app.context_processor
 def base():
@@ -179,7 +187,7 @@ def update_note(note_id):
 def new_note():
     # check if a user is saved in sessing
     if session.get('user'):
-        # check method used for reques
+        # check method used for request
         if request.method == 'POST':
             # get title data
             title = request.form['title']
@@ -223,30 +231,18 @@ def get_notes():
         return redirect(url_for('login'))
 
 
-@app.route('/')
-@app.route('/index')
-def index():
-    # check if a user is saved in sessing
-    if session.get('user'):
-        return render_template("index.html", user=session['user'])
-    return render_template("index.html")
-
-
 # account page
-@app.route('/accounts', methods=['GET', 'POST'])
+@app.route('/accounts')
 def accounts():
-    # check if a user is saved in session
-    form = UpdateAccountForm()
     if session.get('user'):
-        return render_template("accounts.html", user=session['user'], form=form)
-    if form.validate_on_submit():
-        current_user.firstname = form.firstname.data
-        current_user.lastname = form.lastname.data
-        current_user.email = form.email.data
-        db.session.commit()
-        print('account updated')
-        return redirect(url_for('account'))
-    return render_template("accounts.html", user=session['user'], form=form)
+        my_account = db.session.query(User).filter_by(id=session['user_id']).first()
+        return render_template('accounts.html', fname=my_account.first_name,
+                               lname=my_account.last_name, user=session['user'])
+    else:
+        return redirect(url_for('login'))
+
+# update accounts page
+
 
 
 app.run(host=os.getenv('IP', '127.0.0.1'), port=int(os.getenv('PORT', 5000)), debug=True)

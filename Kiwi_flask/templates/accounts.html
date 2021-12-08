@@ -31,40 +31,19 @@
         </nav>
     </div>
 
-    <h1>{{ user }}, use this page to change your name and e-mail address</h1>
-    <div class="formwrapper">
-        <h2 class="title">Account Info</h2>
-        <form method="POST" action="/accounts">
-            <div class="form-field">{{ form.firstname.label }} {{ form.firstname }}
-                {% if form.firstname.errors %}
-                <ul class="errors">
-                    {% for error in form.firstname.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-            <div class="form-field">{{ form.lastname.label }} {{ form.lastname }}
-                {% if form.lastname.errors %}
-                <ul class="errors">
-                    {% for error in form.lastname.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-            <div class="form-field">{{ form.email.label }} {{ form.email }}
-                {% if form.email.errors %}
-                <ul class="errors">
-                    {% for error in form.email.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-            {{ form.submit }}
-        </form>
-    </div>
-</body>
+    <h1>{{ fname }}, use this page to change your name!</h1>
+
+<h1>Account details</h1>
+
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr>
+                <td>{{ fname }}</td>
+                <td>{{ lname }}</td>
+            </tr>
+        </table>
 
 </html>
