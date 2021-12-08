@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title> Good results clicker </title>
-  <script type="text/javascript">
-    var click =0;
-    function ClickCount()
+<script type="text/javascript">
+    var vote =0;
+    var totalVotes =0;
+    var score= 0;
+
+    function displayScore()
     {
-      click+=1
-      document.getElementById('count').innerHTML = click;
+    score = vote/totalVotes;
+
+    document.getElementById('count').innerHTML = Math.round(score);
     }
 
-  </script>
-  <script type="text/javascript">
-    var click =0;
-    function NegCount()
+    function HelpfulCount()
     {
-      click-=1
-      document.getElementById('count').innerHTML = click;
+      totalVotes++;
+      vote+=75;
+      displayScore();
     }
+
+    function NotHelpfulCount()
+    {
+      totalVotes++;
+      vote+=25;
+      displayScore();
+    }
+
+    function KindaHelpfulCount()
+    {
+      totalVotes++;
+      vote+=50;
+      displayScore();
+    }
+
+    function SuperHelpfulCount()
+    {
+      totalVotes++;
+      vote+=100;
+      displayScore();
+    }
+
 
   </script>
   <style type="text/css">
@@ -31,16 +56,25 @@
   span { font-size:150pt; }
 
   </style>
+
+
+
+
 </head>
 <body>
-<div> <span id = "count"></span></div>
+<h1>Votes</h1>
+<div>
+  <h3>Helpfulness Score</h3>
+  <span id = "count"></span></div>
 
 
 <div class="container">
-  <h2>Votes</h2>
+
   <h3>Was this KIWI helpful?</h3>
-  <button onclick="ClickCount()">Yes!</button>
-  <button onclick="NegCount()">No!</button>
+  <button onclick="NotHelpfulCount()">Not Very helpful</button>
+  <button onclick="KindaHelpfulCount()">Kinda Helpful</button>
+  <button onclick="HelpfulCount()">Helpful</button>
+  <button onclick="SuperHelpfulCount()">Super helpful</button>
 
 </div>
 </body>
