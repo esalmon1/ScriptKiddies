@@ -7,7 +7,6 @@
     var vote =0;
     var totalVotes =0;
     var score= 0;
-
     function displayScore()
     {
     score = vote/totalVotes;
@@ -63,9 +62,11 @@
 </head>
 <body>
 <h1>Votes</h1>
+<h3>The maximum Helpfulness Score is 100</h3>
 <div>
   <h3>Helpfulness Score</h3>
-  <span id = "count"></span></div>
+  <span id = "count"></span>
+  </div>
 
 
 <div class="container">
@@ -75,6 +76,7 @@
   <button onclick="KindaHelpfulCount()">Kinda Helpful</button>
   <button onclick="HelpfulCount()">Helpful</button>
   <button onclick="SuperHelpfulCount()">Super helpful</button>
+
 
 </div>
 </body>
