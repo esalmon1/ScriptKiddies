@@ -44,6 +44,7 @@ def search():
         posts = posts.order_by(Note.title).all()
         return render_template("search.html", form=form, results=Note.results, posts=posts)
 
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -241,8 +242,36 @@ def accounts():
     else:
         return redirect(url_for('login'))
 
-# update accounts page
 
+# update accounts page
+@app.route('/accounts/edit/<user_id>', methods=['GET', 'POST'])
+def update_account():
+    # check if a user is saved in session
+    if session.get('user'):
+        if request.method == 'POST':
+            # get firstname data
+            fname = request.form['firstname']
+            # get lastname data
+            lname = request.form['noteText']
+            my_account = db.session.query(User).filter_by(user_id=session['user_id']).first()
+            # update note data
+            my_account.first_name = fname
+            my_account.last_name = lname
+            # update note in DB
+            db.session.add(my_account)
+            db.session.commit()
+
+            return redirect(url_for('accounts'))
+        else:
+            # GET request - show new note form to edit note
+            # retreieve user from databasee
+            # retrieve note from databasee
+            my_account = db.session.query(User).filter_by(id=session['user_id']).first()
+
+        return render_template('accounts.html', fname=my_account.first_name,
+                               lname=my_account.last_name, user=session['user'])
+    else:
+        return redirect(url_for('login'))
 
 
 app.run(host=os.getenv('IP', '127.0.0.1'), port=int(os.getenv('PORT', 5000)), debug=True)
