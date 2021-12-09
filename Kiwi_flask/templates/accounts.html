@@ -16,30 +16,33 @@
     <div class="topnav">
         <nav>
             <a class="fa fa-home" href="{{url_for('index')}}"></a>
-            <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
-            <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
+            <a class="fa fa-briefcase" href="{{url_for('get_notes')}}"></a>
+            <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
             {% if user %}
             <div class="topnav-right">
-                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
-                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
+                <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
+            </div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
             {% endif %}
         </nav>
     </div>
-<h1 class="title"> Account details</h1>
+    <h1 class="title"> Account details</h1>
 
-        <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-            </tr>
-            <tr>
-                <td>{{ fname }}</td>
-                <td>{{ lname }}</td>
-            </tr>
-        </table>
-<td><a class="button3" href="{{ url_for('update_account, user_id=user.id') }}">Edit</a>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr>
+            <td>{{ fname }}</td>
+            <td>{{ lname }}</td>
+        </tr>
+    </table>
+    <td><a class="button3" href="{{ url_for('update_account') }}">Edit</a>
+    </td>
+</body>
 
 </html>
