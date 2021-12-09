@@ -7,7 +7,6 @@ from database import db
 from flask_login import current_user
 
 
-
 # Search Form
 class SearchForm(FlaskForm):
     results = StringField('Results', validators=[DataRequired()])
@@ -72,27 +71,10 @@ class CommentForm(FlaskForm):
 class UpdateAccountForm(FlaskForm):
     class Meta:
         csrf = False
+
     firstname = StringField('First Name', validators=[Length(1, 10)])
     lastname = StringField('Last Name', validators=[Length(1, 20)])
     email = StringField('Email', [
         Email(message='Not a valid email address.'),
         DataRequired()])
     submit = SubmitField('Update Account')
-
-    def validate_firstname(self, firstname):
-        if firstname.data != current_user.firstname:
-            user = User.query.filter_by(firstname=firstname.data).first()
-            if user:
-                raise ValidationError('Name is taken, choose another')
-
-    def validate_lastname(self, lastname):
-        if lastname.data != current_user.lastname:
-            user = User.query.filter_by(lastname=lastname.data).first()
-            if user:
-                raise ValidationError('Name is taken, choose another')
-
-    def validate_email(self, email):
-        if email.data != current_user.email:
-            user = User.query.filter_by(email=email.data).first()
-            if user:
-                raise ValidationError('email is taken, choose another')

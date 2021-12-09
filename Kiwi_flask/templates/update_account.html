@@ -17,20 +17,43 @@
         <nav>
             {% if user %}
             <a class="fa fa-home" href="{{url_for('index')}}"></a>
-            <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
-            <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
+            <a class="fa fa-briefcase" href="{{url_for('get_notes')}}"></a>
+            <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
-                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
-                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
+                <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
+            </div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
             {% endif %}
         </nav>
     </div>
+    <h2 class="title">{{fname}} {{lname}}</h2>
 
-    <h1>{{ user }}, use this page to change your name and e-mail address</h1>
-        <h2 class="title">Account Info</h2>
+    <div class="formwrapper">
+        <h2 class="title">Edit Profile</h2>
+        <form method="POST" action="/accounts/edit/update_account">
+            <div class="form-field">{{ form.firstname.label }} {{ form.firstname }}
+                {% if form.firstname.errors %}
+                <ul class="errors">
+                    {% for error in form.firstname.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.lastname.label }} {{ form.lastname }}
+                {% if form.lastname.errors %}
+                <ul class="errors">
+                    {% for error in form.lastname.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {{ form.submit }}
+        </form>
 </body>
 
 </html>

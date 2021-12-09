@@ -257,10 +257,11 @@ def get_accounts():
 # update accounts page
 @app.route('/accounts/edit/update_account', methods=['GET', 'POST'])
 def update_account():
+    form = UpdateAccountForm()
     if session.get('user'):
         my_account = db.session.query(User).filter_by(id=session['user_id']).first()
         return render_template('update_account.html', fname=my_account.first_name,
-                               lname=my_account.last_name, user=session['user'])
+                               lname=my_account.last_name, user=session['user'], form=form)
     else:
         return redirect(url_for('login'))
 
