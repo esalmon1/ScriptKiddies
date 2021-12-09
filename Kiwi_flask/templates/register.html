@@ -15,7 +15,7 @@
             <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
-                <a class="fa fa-user-o"href="{{url_for('accounts')}}"></a>
+                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>

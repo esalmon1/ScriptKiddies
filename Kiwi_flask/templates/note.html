@@ -16,7 +16,7 @@
     {% if user %}
             <a href="{{url_for('logout')}}">Logout</a>
             <div class="topnav-right">
-            <a href="{{url_for('accounts')}}">Account</a>
+            <a href="{{url_for('get_accounts')}}">Account</a>
             </div>
     {% else %}
             <a href="{{url_for('login')}}">Login</a>

@@ -216,13 +216,13 @@ def new_note():
 def get_note(note_id):
     if session.get('user'):
         my_notes = db.session.query(Note).filter_by(id=note_id).one()
-
         form = CommentForm()
         return render_template('note.html', note=my_notes, user=session['user'], form=form)
     else:
         return redirect(url_for('login'))
 
 
+# notes page
 @app.route('/notes')
 def get_notes():
     if session.get('user'):
@@ -232,9 +232,20 @@ def get_notes():
         return redirect(url_for('login'))
 
 
-# account page
+# retrieve account
+@app.route('/accounts/<user_id>')
+def get_account(user_id):
+    if session.get('user'):
+        my_account = db.session.query(User).filter_by(id=user_id).one()
+
+        return render_template('note.html', usr=my_account, user=session['user'])
+    else:
+        return redirect(url_for('login'))
+
+
+# accounts page
 @app.route('/accounts')
-def accounts():
+def get_accounts():
     if session.get('user'):
         my_account = db.session.query(User).filter_by(id=session['user_id']).first()
         return render_template('accounts.html', fname=my_account.first_name,
@@ -244,31 +255,11 @@ def accounts():
 
 
 # update accounts page
-@app.route('/accounts/edit/<user_id>', methods=['GET', 'POST'])
+@app.route('/accounts/edit/update_account', methods=['GET', 'POST'])
 def update_account():
-    # check if a user is saved in session
     if session.get('user'):
-        if request.method == 'POST':
-            # get firstname data
-            fname = request.form['firstname']
-            # get lastname data
-            lname = request.form['noteText']
-            my_account = db.session.query(User).filter_by(user_id=session['user_id']).first()
-            # update note data
-            my_account.first_name = fname
-            my_account.last_name = lname
-            # update note in DB
-            db.session.add(my_account)
-            db.session.commit()
-
-            return redirect(url_for('accounts'))
-        else:
-            # GET request - show new note form to edit note
-            # retreieve user from databasee
-            # retrieve note from databasee
-            my_account = db.session.query(User).filter_by(id=session['user_id']).first()
-
-        return render_template('accounts.html', fname=my_account.first_name,
+        my_account = db.session.query(User).filter_by(id=session['user_id']).first()
+        return render_template('update_account.html', fname=my_account.first_name,
                                lname=my_account.last_name, user=session['user'])
     else:
         return redirect(url_for('login'))

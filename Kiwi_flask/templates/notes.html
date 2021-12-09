@@ -7,6 +7,7 @@
         <title>UNCC Notes App - View your Notes</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
     </head>
@@ -17,7 +18,7 @@
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             {% if user %}
             <div class="topnav-right">
-                <a class="fa fa-user-o"href="{{url_for('accounts')}}"></a>
+                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
@@ -26,7 +27,7 @@
         </nav>
     </div>
     <body>
-        <h1>{{user}}, Here are your fruity Kiwis!</h1>
+        <h1 class="title">{{user}}, here are your fruity Kiwis!</h1>
         <table>
             <form method="POST" action="{{ url_for('search')}}" class="searching">
                 {{ form.hidden_tag() }}

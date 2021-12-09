@@ -20,7 +20,7 @@
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             {% if user %}
             <div class="topnav-right">
-                <a class="fa fa-user-o"href="{{url_for('accounts')}}"></a>
+                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
@@ -29,7 +29,7 @@
         </nav>
     </div>
 
-    <h1>{{user}}, It's time to get fruity!</h1>
+    <h1 class="title">{{user}}, It's time to get fruity!</h1>
     {% if note %}
     <form action="{{ url_for('update_note', note_id=note.id)}}" method="post">
         {% else %}
