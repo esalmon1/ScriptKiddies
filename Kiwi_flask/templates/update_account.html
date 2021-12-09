@@ -15,7 +15,6 @@
 <body>
     <div class="topnav">
         <nav>
-            {% if user %}
             <a class="fa fa-home" href="{{url_for('index')}}"></a>
             <a class="fa fa-briefcase" href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
@@ -23,10 +22,6 @@
                 <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
             </div>
-            {% else %}
-            <a href="{{url_for('login')}}">Login</a>
-            <a href="{{url_for('register')}}">Register</a>
-            {% endif %}
         </nav>
     </div>
     <h2 class="title">{{fname}} {{lname}}</h2>

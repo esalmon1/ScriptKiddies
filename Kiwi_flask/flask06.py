@@ -267,12 +267,15 @@ def get_accounts():
 @app.route('/accounts/edit/update_account', methods=['GET', 'POST'])
 def update_account():
     form = UpdateAccountForm()
-    if session.get('user'):
-        my_account = db.session.query(User).filter_by(id=session['user_id']).first()
-        return render_template('update_account.html', fname=my_account.first_name,
-                               lname=my_account.last_name, user=session['user'], form=form)
-    else:
-        return redirect(url_for('login'))
+    my_account = db.session.query(User).filter_by(id=session['user_id']).first()
+    if request.method == 'POST':
+        updated_info = db.session.query(User).filter_by(id=session['user_id']).one()
+        updated_info.first_name = form.firstname.data
+        updated_info.last_name = form.lastname.data
+        db.session.commit()
+        return redirect(url_for('get_accounts'))
+    return render_template('update_account.html', form=form, fname=my_account.first_name,
+                           lname=my_account.last_name)
 
 
 app.run(host=os.getenv('IP', '127.0.0.1'), port=int(os.getenv('PORT', 5000)), debug=True)
