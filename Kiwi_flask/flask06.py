@@ -15,7 +15,7 @@ import bcrypt
 from flask import session
 from forms import LoginForm
 from models import Comment as Comment
-from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm
+from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm, HelpfulScore
 from flask_login import current_user
 
 # from flask_socketio import SocketIO, emit
@@ -34,6 +34,8 @@ with app.app_context():
 # @app.route is a decorator. It gives the function "index" special powers.
 # In this case it makes it so anyone going to "your-url/" makes this function
 # get called. What it returns is what is shown as the web page
+
+
 @app.route('/search', methods=['POST'])
 def search():
     form = SearchForm()
@@ -62,7 +64,14 @@ def base():
 
 @app.route('/vote')
 def vote():
-    return render_template("vote.html")
+    help_form = HelpfulScore()
+    if session.get('user') and help_form.validate_on_submit():
+        postScore = request.form['score']
+        db.session.add(postScore)
+        db.session.commit()
+        return redirect(url_for('/vote'))
+    else:
+        return render_template("vote.html")
 
 
 @app.route('/notes/<note_id>/comment', methods=['POST'])
@@ -255,8 +264,13 @@ def get_accounts():
 
 
 # update accounts page
+<<<<<<< HEAD
 @app.route('/accounts/edit', methods=['GET', 'POST'])
 def update_account():
+=======
+@app.route('/accounts/edit/update_account/', methods=['GET', 'POST'])
+def update_account(user_id):
+>>>>>>> 77beac2daf5abe3beb9960b873780d6b8c9b75de
     form = UpdateAccountForm()
     if session.get('user'):
         my_account = db.session.query(User).filter_by(id=session['user_id']).first()
