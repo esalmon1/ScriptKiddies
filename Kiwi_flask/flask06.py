@@ -15,7 +15,8 @@ import bcrypt
 from flask import session
 from forms import LoginForm
 from models import Comment as Comment
-from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm, HelpfulScore
+from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm
+
 from flask_login import current_user
 
 # from flask_socketio import SocketIO, emit
@@ -62,16 +63,40 @@ def base():
     return dict(form=form)
 
 
-@app.route('/vote')
-def vote():
-    help_form = HelpfulScore()
-    if session.get('user') and help_form.validate_on_submit():
-        postScore = request.form['score']
-        db.session.add(postScore)
-        db.session.commit()
-        return redirect(url_for('/vote'))
-    else:
-        return render_template("vote.html")
+@app.route('/vote/<note_id>')
+def vote25(note_id):
+    if session.get('user'):
+        note = db.session.query(Note).filter_by(note_id).one
+        note.score = note.score+25
+        note.votes = note.votes+1
+        note.score = note.score/note.votes
+        db.session.add(note)
+        return render_template("vote.html", user= session['user'])
+def vote50(note_id):
+    if session.get('user'):
+        note = db.session.query(Note).filter_by(note_id).one
+        note.votes = note.votes+1
+        note.score = note.score+50
+        note.score = note.score/note.votes
+        db.session.add(note)
+        return render_template("vote.html", user= session['user'])
+def vote75(note_id):
+    if session.get('user'):
+        note = db.session.query(Note).filter_by(note_id).one
+        note.votes = note.votes+1
+        note.score = note.score+75
+        note.score = note.score/note.votes
+        db.session.add(note)
+        return render_template("vote.html", user= session['user'])
+def vote100(note_id):
+    if session.get('user'):
+        note = db.session.query(Note).filter_by(note_id).one
+        note.votes = note.votes+1
+        note.score = note.score+100
+        note.score = note.score/note.votes
+        db.session.add(note)
+        return render_template("vote.html", user= session['user'])
+
 
 
 @app.route('/notes/<note_id>/comment', methods=['POST'])
@@ -208,7 +233,7 @@ def new_note():
             today = date.today()
             # format date mm/dd/yyyy
             today = today.strftime("%m-%d-%Y")
-            new_record = Note(title, text, today, session['user'])
+            new_record = Note(title, text, today, session['user'], score=0, votes=0)
             db.session.add(new_record)
             db.session.commit()
             return redirect(url_for('get_notes'))
