@@ -36,7 +36,7 @@
 
 <div class="container">
   <h3>Was this KIWI helpful?</h3>
-  <button onclick="NotHelpfulCount()">Not Very helpful</button>
+  <button onclick="{{url_for('vote25', note_id=note.id)}}">Not Very helpful</button>
   <button onclick="KindaHelpfulCount()">Kinda Helpful</button>
   <button onclick="HelpfulCount()">Helpful</button>
   <button onclick="SuperHelpfulCount()">Super helpful</button>

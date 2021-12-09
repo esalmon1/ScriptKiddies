@@ -8,14 +8,18 @@ class Note(db.Model):
     text = db.Column("text", db.String(100))
     date = db.Column("date", db.String(50))
     #can create a foreign key refrencing the id var in the User class so that is why it is lowercasee u
-    user_id= db.Column(db.Integer,db.ForeignKey("user.id"), nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey("user.id"), nullable = False)
     comments = db.relationship("Comment", backref="note",cascade = "all, delete-orphan", lazy=True)
+    score = db.Column("score", db.Integer)
+    votes = db.Column("totalVotes", db.Integer)
 
-    def __init__(self, title, text, date, user_id):
+    def __init__(self, title, text, date, user_id, score, votes):
         self.title = title
         self.text = text
         self.date = date
         self.user_id = user_id
+        self.score = score
+        self.votes = votes
 
 class User(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)

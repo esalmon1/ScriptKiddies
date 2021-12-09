@@ -14,9 +14,9 @@ class SearchForm(FlaskForm):
 
 
 # VOTE form
-class HelpfulScore(FlaskForm):
-    score = IntegerField('count', [validators.NumberRange()])
-    numVotes = IntegerField('count')
+#class HelpfulScore(FlaskForm):
+    #score = Integer('count', [validators.NumberRange()])
+    #numVotes = IntegerField('count')
 
 
 class RegisterForm(FlaskForm):
@@ -72,8 +72,7 @@ class CommentForm(FlaskForm):
 
     submit = SubmitField('Add Comment')
 
-
-# update account information
+    #update account information
 class UpdateAccountForm(FlaskForm):
     class Meta:
         csrf = False
