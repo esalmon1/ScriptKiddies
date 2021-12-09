@@ -264,13 +264,8 @@ def get_accounts():
 
 
 # update accounts page
-<<<<<<< HEAD
-@app.route('/accounts/edit', methods=['GET', 'POST'])
+@app.route('/accounts/edit/update_account', methods=['GET', 'POST'])
 def update_account():
-=======
-@app.route('/accounts/edit/update_account/', methods=['GET', 'POST'])
-def update_account(user_id):
->>>>>>> 77beac2daf5abe3beb9960b873780d6b8c9b75de
     form = UpdateAccountForm()
     if session.get('user'):
         my_account = db.session.query(User).filter_by(id=session['user_id']).first()
