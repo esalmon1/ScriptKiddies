@@ -9,19 +9,19 @@
     <!-- styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 
 <body>
     <div class="topnav">
         <nav>
-            <a href="{{url_for('index')}}">Home</a>
-            <a href="{{url_for('get_notes')}}">My Kiwis</a>
-            <a href="{{url_for('new_note')}}">Add Kiwi</a>
+            <a class="fa fa-home" href="{{url_for('index')}}"></a>
+            <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
+            <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             {% if user %}
-            <a href="{{url_for('logout')}}">Logout</a>
             <div class="topnav-right">
-                <a href="{{url_for('accounts')}}">Account</a>
-            </div>
+                <a class="fa fa-user-o"href="{{url_for('accounts')}}"></a>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>

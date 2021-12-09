@@ -75,5 +75,27 @@ margin:0.2em auto;
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
+  display: inline-block;
+}
+
+#onhoveraccount{
+visibility: hidden;
+}
+#accounticon:hover ~ #onhoveraccount{
+visibility: visible;
+}
+
+#onhoverhome{
+visibility: hidden;
+}
+#homeicon:hover ~ #onhoverhome{
+visibility: visible;
+}
+
+#onhoverlogout{
+visibility: hidden;
+}
+#logouticon:hover ~ #onhoverlogout{
+visibility: visible;
 }
 
