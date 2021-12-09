@@ -38,11 +38,11 @@ with app.app_context():
 def search():
     form = SearchForm()
     posts = Note.query
-    if form.validate_on_submit():
+    if form.validate_on_submit() and session.get('user'):
         Note.results = form.results.data
         posts = posts.filter(Note.text.like('%' + Note.results + '%'))
         posts = posts.order_by(Note.title).all()
-        return render_template("search.html", form=form, results=Note.results, posts=posts)
+        return render_template("search.html", form=form, results=Note.results, posts=posts, user=session['user'])
 
 
 @app.route('/')
@@ -255,15 +255,28 @@ def get_accounts():
 
 
 # update accounts page
-@app.route('/accounts/edit/update_account', methods=['GET', 'POST'])
-def update_account():
+@app.route('/accounts/edit/update_account/<user_id>', methods=['GET', 'POST'])
+def update_account(user_id):
     form = UpdateAccountForm()
-    if session.get('user'):
-        my_account = db.session.query(User).filter_by(id=session['user_id']).first()
-        return render_template('update_account.html', fname=my_account.first_name,
-                               lname=my_account.last_name, user=session['user'], form=form)
-    else:
-        return redirect(url_for('login'))
+
+    if request.method == 'POST' and form.validate_on_submit():
+        # salt and hash password
+        # get entered user data
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']
+        # create user model
+        updated_user = User(first_name, last_name)
+        # add user to database and commit
+        db.session.add(updated_user)
+        db.session.commit()
+        # save the user's name to the session
+        session['user'] = first_name
+        session['user_id'] = updated_user.id  # access id value from user model of this newly added user
+        # show user dashboard view
+        return redirect(url_for('accounts'))
+
+    # something went wrong - display register view
+    return render_template('accounts.html', form=form, user=session['user'])
 
 
 app.run(host=os.getenv('IP', '127.0.0.1'), port=int(os.getenv('PORT', 5000)), debug=True)
