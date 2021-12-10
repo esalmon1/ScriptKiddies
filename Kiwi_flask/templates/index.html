@@ -42,12 +42,11 @@
             </tr>
             {% for note in notes %}
             <tr>
-                <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a>
-                <td>{{ note.date }}</td>
-                    </form></tr>
-                <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a>
-                <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a>
-                </td>
+                <td><a class="title" href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a></td>
+                <td><a class="title" href="{{ url_for('get_note', note_id=note.id) }}">{{ note.date }}</a></td>
+            </tr>
+            <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a></td>
+                <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a></td>
             </tr>
             {% endfor %}
         </table>
