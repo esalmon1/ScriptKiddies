@@ -63,33 +63,21 @@ def base():
     form = SearchForm()
     return dict(form=form)
 
-
-@app.route('/notes/vote/<note_id>')
-def vote(note_id):
-    if session.get('user'):
-        my_note = db.session.query(Note).filter_by(id=note_id).one()
-        return render_template("vote.html", id=note_id, note=my_note)
-    return render_template("vote.html", note_id=note_id)
-
-
-@app.route('/notes/vote/<note_id>/Like')
+@app.route('/notes/<note_id>/Like')
 def voteLike(note_id):
     if session.get('user'):
         my_note = db.session.query(Note).filter_by(id=note_id).one()
-        my_note.like = 1
+        my_note.score = 1
         db.session.add(my_note)
-        db.session.commmit()
-        return render_template("vote.html", id=note_id, note=my_note)
+        return render_template("index.html", id=note_id, note=my_note)
 
-
-@app.route('/notes/vote/<note_id>/Dislike')
-def voteDislike(note_id):
+@app.route('/notes/<note_id>/Dislike')
+def voteDislike(score, note_id):
     if session.get('user'):
-        my_note = db.session.query(Note).filter_by(id=note_id).one()
-        my_note.like = 0
+        my_note = db.session.query(Note).filter_by(note_score = score).one()
+        my_note.score = 0
         db.session.add(my_note)
-        db.session.commmit()
-        return render_template("vote.html", id=note_id, note=my_note)
+        return render_template("index.html", id=note_id, note=my_note)
 
 
 @app.route('/notes/<note_id>/comment', methods=['POST'])
@@ -226,7 +214,7 @@ def new_note():
             today = date.today()
             # format date mm/dd/yyyy
             today = today.strftime("%m-%d-%Y")
-            new_record = Note(title, text, today, session['user'], score=0, votes=0)
+            new_record = Note(title, text, today, session['user'], votes=0, score=0)
             db.session.add(new_record)
             db.session.commit()
             return redirect(url_for('get_notes'))
