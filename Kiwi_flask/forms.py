@@ -66,7 +66,7 @@ class CommentForm(FlaskForm):
 
     comment = TextAreaField('Comment', validators=[Length(min=1)])
 
-    submit = SubmitField('Add Comment')
+    submit = SubmitField('Submit Answer')
 
     #update account information
 class UpdateAccountForm(FlaskForm):

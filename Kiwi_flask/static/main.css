@@ -109,9 +109,12 @@ visibility: hidden;
 #logouticon:hover ~ #onhoverlogout{
 visibility: visible;
 }
-
-
-
+/* comments section */
+.commentsection {
+position: absolute;
+  top: 50%;
+  left: 50%;
+}
   {
     width:100%;
     height:300px;
@@ -119,3 +122,4 @@ visibility: visible;
     text-align:center;
   }
   span { font-size:150pt; }
+

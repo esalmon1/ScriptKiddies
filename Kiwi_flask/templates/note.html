@@ -26,14 +26,11 @@
             {% endif %}
         </nav>
     </div>
-    <h1>
-        {{user}}, here are your fruity Kiwis!
-    </h1>
     <body>
-
-{% if note.comments %}
+     <div class="commentsection">
+        {% if note.comments %}
     {% if note.comments|length > 0 %}
-        <h2>Comments</h2>
+        <h2>Answers</h2>
         <ul>
         {% for comment in note.comments %}
             <li>{{ comment.content }}</li>
@@ -41,17 +38,7 @@
         </ul>
     {% endif %}
 {% endif %}
-<form action="{{ url_for('new_comment', note_id=note.id) }}" method="post">
-    <div class="formwrapper">
-    <h2 class="title">Add a comment</h2>
-        <div class="form-field">
-            {{ form.comment.label }} <br/> {{ form.comment }}
         </div>
-    {{ form.submit }}
-    </div>
-</form>
-        <h1>Note details</h1>
-
         <table>
             <tr>
                 <th>Title</th>
@@ -69,6 +56,15 @@
                 <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a>
                 <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a>
                 </td>
+<form action="{{ url_for('new_comment', note_id=note.id) }}" method="post">
+    <div>
+    <h2>Answer the Kiwi</h2>
+        <div class="form-field">
+            <br/> {{ form.comment }}
+        </div>
+    {{ form.submit }}
+    </div>
+</form>
     <script>
     function myFunction() {
       document.body.style.backgroundColor = "black";
