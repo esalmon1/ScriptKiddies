@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField, validators
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField
 from wtforms.validators import Length, Regexp, DataRequired, EqualTo, Email
 from wtforms import ValidationError
 from models import User
@@ -12,12 +12,8 @@ class SearchForm(FlaskForm):
     results = StringField('Results', validators=[DataRequired()])
     submit = SubmitField("Submit")
 
-
-# VOTE form
-#class HelpfulScore(FlaskForm):
-    #score = Integer('count', [validators.NumberRange()])
-    #numVotes = IntegerField('count')
-
+#class voteForm(FlaskForm):
+# votes =
 
 class RegisterForm(FlaskForm):
     class Meta:

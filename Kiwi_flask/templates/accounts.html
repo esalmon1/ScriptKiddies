@@ -20,6 +20,7 @@
             <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
             {% if user %}
             <div class="topnav-right">
+                <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
             </div>
@@ -43,6 +44,11 @@
     </table>
     <td><a class="button3" href="{{ url_for('update_account') }}">Edit</a>
     </td>
+    <script>
+        function myFunction() {
+          document.body.style.backgroundColor = "black";
+        }
+    </script>
 </body>
 
 </html>

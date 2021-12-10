@@ -19,6 +19,7 @@
             <a class="fa fa-briefcase" href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
+                <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
             </div>
@@ -27,16 +28,22 @@
     <h2 class="title">{{fname}} {{lname}}</h2>
 <div class="formwrapper">
             <h2 class="title">Edit Profile</h2>
-<<<<<<< HEAD
+
             <form method="POST" action="">
-=======
+
             <form method="POST" action="/register">
->>>>>>> aff26e57e2521817099e9b1eff9a2fd3a90ec03a
+
                 <div class="form-field">{{ form.firstname.label }} {{ form.firstname }}</div>
                 <div class="form-field">{{ form.lastname.label }} {{ form.lastname }}</div>
                 {{ form.submit }}
             </form>
+            </form>
 </div>
+<script>
+    function myFunction() {
+      document.body.style.backgroundColor = "black";
+    }
+</script>
 </body>
 
 </html>

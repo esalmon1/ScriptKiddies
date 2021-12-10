@@ -15,6 +15,7 @@
             <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
+                <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
             {% else %}
@@ -49,5 +50,10 @@
                 {{ form.submit }}
             </form>
         </div>
+    <script>
+    function myFunction() {
+      document.body.style.backgroundColor = "black";
+    }
+</script>
     </body>
 </html>

@@ -62,40 +62,31 @@ def base():
     form = SearchForm()
     return dict(form=form)
 
+@app.route('/notes/vote/<note_id>')
+def vote(note_id):
+    if session.get('user'):
+        my_note = db.session.query(Note).filter_by(id=note_id).one()
+        return render_template("vote.html", id=note_id, note=my_note)
+    return render_template("vote.html", note_id=note_id)
 
-@app.route('/vote/<note_id>')
-def vote25(note_id):
+@app.route('/notes/vote/<note_id>/Like')
+def voteLike(note_id):
     if session.get('user'):
-        note = db.session.query(Note).filter_by(note_id).one
-        note.score = note.score+25
-        note.votes = note.votes+1
-        note.score = note.score/note.votes
-        db.session.add(note)
-        return render_template("vote.html", user= session['user'])
-def vote50(note_id):
+        my_note = db.session.query(Note).filter_by(id=note_id).one()
+        my_note.like = 1
+        db.session.add(my_note)
+        db.session.commmit()
+        return render_template("vote.html", id=note_id,note=my_note)
+
+@app.route('/notes/vote/<note_id>/Dislike')
+def voteDislike(note_id):
     if session.get('user'):
-        note = db.session.query(Note).filter_by(note_id).one
-        note.votes = note.votes+1
-        note.score = note.score+50
-        note.score = note.score/note.votes
-        db.session.add(note)
-        return render_template("vote.html", user= session['user'])
-def vote75(note_id):
-    if session.get('user'):
-        note = db.session.query(Note).filter_by(note_id).one
-        note.votes = note.votes+1
-        note.score = note.score+75
-        note.score = note.score/note.votes
-        db.session.add(note)
-        return render_template("vote.html", user= session['user'])
-def vote100(note_id):
-    if session.get('user'):
-        note = db.session.query(Note).filter_by(note_id).one
-        note.votes = note.votes+1
-        note.score = note.score+100
-        note.score = note.score/note.votes
-        db.session.add(note)
-        return render_template("vote.html", user= session['user'])
+        my_note = db.session.query(Note).filter_by(id=note_id).one()
+        my_note.like = 0
+        db.session.add(my_note)
+        db.session.commmit()
+        return render_template("vote.html", id=note_id,note=my_note)
+
 
 
 

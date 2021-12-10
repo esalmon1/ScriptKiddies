@@ -8,21 +8,18 @@
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
-        <script src="static/meow.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
     </head>
     <div class="topnav">
         <nav>
-            {% if user %}
             <a class="fa fa-home" href="{{url_for('index')}}"></a>
             <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
+                 <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
-            {% else %}
-            <a href="{{url_for('login')}}">Login</a>
-            <a href="{{url_for('register')}}">Register</a>
-            {% endif %}
         </nav>
     </div>
 </div>
@@ -31,15 +28,23 @@
 <h3>The maximum Helpfulness Score is 100</h3>
 <div>
   <h3>Helpfulness Score</h3>
-  <span id = "count"></span>
+
   </div>
 
 <div class="container">
   <h3>Was this KIWI helpful?</h3>
-  <button onclick="{{url_for('vote25', note_id=note.id)}}">Not Very helpful</button>
-  <button onclick="KindaHelpfulCount()">Kinda Helpful</button>
-  <button onclick="HelpfulCount()">Helpful</button>
-  <button onclick="SuperHelpfulCount()">Super helpful</button>
+
+    <tr>
+                <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a>
+                <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a>
+
+                </td>
+            </tr>
 </div>
+<script>
+    function myFunction() {
+      document.body.style.backgroundColor = "black";
+    }
+</script>
 </body>
 </html>

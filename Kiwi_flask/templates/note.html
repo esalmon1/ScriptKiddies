@@ -7,21 +7,23 @@
         <title>UNCC Notes App - View your Note</title>
         <!-- styless -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     </head>
     <div class="topnav">
-    <nav>
-        <a href="{{url_for('index')}}">Home</a>
-        <a href="{{url_for('get_notes')}}">My Kiwis</a>
-        <a href="{{url_for('new_note')}}">Add Kiwi</a>
-    {% if user %}
-            <a href="{{url_for('logout')}}">Logout</a>
+        <nav>
+            {% if user %}
+            <a class="fa fa-home" href="{{url_for('index')}}"></a>
+            <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
+            <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
-            <a href="{{url_for('get_accounts')}}">Account</a>
-            </div>
-    {% else %}
+                <a class="fa fa-moon-o" onclick="myFunction()"></a>
+                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
+            {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
-    {% endif %}
+            {% endif %}
         </nav>
     </div>
     <h1>
@@ -29,7 +31,7 @@
     </h1>
     <body>
     <h2>Vote Here</h2>
-    <form> <a class="button3" href="/vote">Vote for helpful scale</a></form>
+    <form> <a class="button3" href="{{ url_for('vote',note_id=note.id) }}">Jump To Voting Page</a></form>
 
 
 {% if note.comments %}
@@ -65,6 +67,11 @@
                 <td>{{ note.date }}</td>
             </tr>
         </table>
+    <script>
+    function myFunction() {
+      document.body.style.backgroundColor = "black";
+    }
+</script>
     </body>
 </html>
 
