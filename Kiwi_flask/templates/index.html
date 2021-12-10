@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
@@ -19,7 +18,8 @@
             <div class="topnav-right">
                 <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
-                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
+            </div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
@@ -27,17 +27,33 @@
         </nav>
     </div>
 <body>
-        <h1 class="title">Welcome {{user}} to Kiwi, More updates are coming soon!</h1>
-
-
-        <h2>Locate Your Kiwi's</h2>
-    <form method="POST" action="{{ url_for('search')}}" class="searching">
+<div class="searchStuff">
+        <form method="POST" action="{{ url_for('search')}}" class="searching">
                 {{ form.hidden_tag() }}
                 <input class="form-search" type="search" placeholder="Kiwi Locator" aria-label="Locate"
                        name="results">
                 <button class="search-btn" type="submit">Search</button>
+            </form>
+    </div>
+        <h1 class="title">Explore the kiwi world, {{user}}!</h1>
+        <table>
+                <th class="title">Kiwi</th>
+                <th class="title">Date</th>
+            </tr>
+            {% for note in notes %}
+            <tr>
+                <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a>
+                <td>{{ note.date }}</td>
+                    </form></tr>
+                <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a>
+                <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
 
-    </form>
+
+
     <script>
         function myFunction() {
           document.body.style.backgroundColor = "black";

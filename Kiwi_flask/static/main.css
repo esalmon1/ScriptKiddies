@@ -42,6 +42,10 @@ h2{
 .topnav-right {
   float: right;
 }
+/* search feature */
+.searchStuff {
+  float: right;
+}
 
 /* Kiwi interactive buttons */
 a.button3{

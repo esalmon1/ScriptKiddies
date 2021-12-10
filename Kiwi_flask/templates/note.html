@@ -30,9 +30,6 @@
         {{user}}, here are your fruity Kiwis!
     </h1>
     <body>
-    <h2>Vote Here</h2>
-    <form> <a class="button3" href="{{ url_for('vote',note_id=note.id) }}">Jump To Voting Page</a></form>
-
 
 {% if note.comments %}
     {% if note.comments|length > 0 %}
@@ -63,10 +60,15 @@
             </tr>
             <tr>
                 <td>{{ note.title }}</td>
+                <br>
                 <td>{{ note.text }}</td>
+                <br>
                 <td>{{ note.date }}</td>
             </tr>
         </table>
+                <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a>
+                <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a>
+                </td>
     <script>
     function myFunction() {
       document.body.style.backgroundColor = "black";

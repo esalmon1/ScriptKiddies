@@ -51,16 +51,18 @@ def search():
 @app.route('/')
 @app.route('/index')
 def index():
-    # check if a user is saved in session
     if session.get('user'):
-        return render_template("index.html", user=session['user'])
-    return render_template("index.html")
+        all_notes = db.session.query(Note).all()
+        return render_template('index.html', notes=all_notes, user=session['user'])
+    else:
+        return redirect(url_for('login'))
 
 
 @app.context_processor
 def base():
     form = SearchForm()
     return dict(form=form)
+
 
 @app.route('/notes/vote/<note_id>')
 def vote(note_id):
@@ -69,6 +71,7 @@ def vote(note_id):
         return render_template("vote.html", id=note_id, note=my_note)
     return render_template("vote.html", note_id=note_id)
 
+
 @app.route('/notes/vote/<note_id>/Like')
 def voteLike(note_id):
     if session.get('user'):
@@ -76,7 +79,8 @@ def voteLike(note_id):
         my_note.like = 1
         db.session.add(my_note)
         db.session.commmit()
-        return render_template("vote.html", id=note_id,note=my_note)
+        return render_template("vote.html", id=note_id, note=my_note)
+
 
 @app.route('/notes/vote/<note_id>/Dislike')
 def voteDislike(note_id):
@@ -85,9 +89,7 @@ def voteDislike(note_id):
         my_note.like = 0
         db.session.add(my_note)
         db.session.commmit()
-        return render_template("vote.html", id=note_id,note=my_note)
-
-
+        return render_template("vote.html", id=note_id, note=my_note)
 
 
 @app.route('/notes/<note_id>/comment', methods=['POST'])

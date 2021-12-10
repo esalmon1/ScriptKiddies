@@ -28,17 +28,19 @@
         </nav>
     </div>
     <body>
-        <h1 class="title">{{user}}, here are your fruity Kiwis!</h1>
-        <table>
-            <form method="POST" action="{{ url_for('search')}}" class="searching">
+    <div class="searchStuff">
+        <form method="POST" action="{{ url_for('search')}}" class="searching">
                 {{ form.hidden_tag() }}
-                <input class="form-search" type="search" placeholder="Kiwi Locator" aria-label="Locate",
+                <input class="form-search" type="search" placeholder="Kiwi Locator" aria-label="Locate"
                        name="results">
                 <button class="search-btn" type="submit">Search</button>
             </form>
+    </div>
+    <h1 class="title">{{user}}, here are your fruity Kiwis!</h1>
+        <table>
             <tr>
-                <th>Kiwi</th>
-                <th>Date</th>
+                <th class="title">Kiwi</th>
+                <th class="title">Date</th>
             </tr>
             {% for note in notes %}
             <tr>
@@ -49,11 +51,10 @@
                     <form action="{{url_for('delete_note', note_id=note.id)}}" method="post">
                     <button class="button3" type="submit">Delete</button>
                     </form>
-                <td><a class="button3" href="{{ url_for('vote',note_id=note.id) }}">Jump To Voting Page</a>
-                </td>
             </tr>
             {% endfor %}
         </table>
+
     <script>
     function myFunction() {
       document.body.style.backgroundColor = "black";
