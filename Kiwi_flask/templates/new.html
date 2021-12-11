@@ -32,7 +32,7 @@
         </nav>
     </div>
 
-    <h1 class="title">{{user}}, It's time to get fruity!</h1>
+    <h1 class="title">{{user}}, ask the world of kiwi a question!</h1>
     {% if note %}
     <form action="{{ url_for('update_note', note_id=note.id)}}" method="post">
         {% else %}

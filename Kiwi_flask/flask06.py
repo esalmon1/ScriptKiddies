@@ -55,7 +55,7 @@ def index():
         all_notes = db.session.query(Note).all()
         return render_template('index.html', notes=all_notes, user=session['user'])
     else:
-        return redirect(url_for('login'))
+        return redirect(url_for('register'))
 
 
 @app.context_processor
