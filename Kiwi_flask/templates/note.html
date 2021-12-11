@@ -35,6 +35,9 @@
         <ul>
         {% for comment in note.comments %}
             <li>{{ comment.content }}</li>
+            <a class="fa fa-thumbs-up" href="{{ url_for('voteLike', note_id=note.id) }}"></a>
+            <a class="fa fa-thumbs-down" href="{{ url_for('voteDislike', note_id=note.id) }}"></a>
+
         {% endfor %}
         </ul>
     {% endif %}
@@ -54,9 +57,7 @@
                 <td>{{ note.date }}</td>
             </tr>
         </table>
-                <td><a class="button3" href="{{ url_for('voteLike', note_id=note.id) }}">Like This Kiwi!</a>
-                <td><a class="button3" href="{{ url_for('voteDislike', note_id=note.id) }}">Dislike This Kiwi!</a>
-                </td>
+
 <form action="{{ url_for('new_comment', note_id=note.id) }}" method="post">
     <div>
     <h2>Answer the Kiwi</h2>
