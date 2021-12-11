@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App - View your Notes</title>
-        <!-- styles -->
-        <script type="text/javascript" src="static/functions.js"></script>
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-    </head>
-    <div class="topnav">
-        <nav>
-            <a class="fa fa-home" href="{{url_for('index')}}"></a>
-            <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
-            <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
-            {% if user %}
-            <div class="topnav-right">
-                <a class="fa fa-moon-o" onclick="myFunction()"></a>
-                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
-                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
-            {% else %}
-            <a href="{{url_for('login')}}">Login</a>
-            <a href="{{url_for('register')}}">Register</a>
-            {% endif %}
-        </nav>
-    </div>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UNCC Notes App">
+    <title>UNCC Notes App - View your Notes</title>
+    <!-- styles -->
+    <script type="text/javascript" src="static/functions.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+<div class="topnav">
+    <nav>
+        <a class="fa fa-home" href="{{url_for('index')}}"></a>
+        <a class="fa fa-briefcase" href="{{url_for('get_notes')}}"></a>
+        <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
+        {% if user %}
+        <div class="topnav-right">
+            <a class="fa fa-moon-o" onclick="myFunction()"></a>
+            <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
+            <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
+        </div>
+        {% else %}
+        <a href="{{url_for('login')}}">Login</a>
+        <a href="{{url_for('register')}}">Register</a>
+        {% endif %}
+    </nav>
+</div>
+
+<body>
     <div class="searchStuff">
         <form method="POST" action="{{ url_for('search')}}" class="searching">
-                {{ form.hidden_tag() }}
-                <input class="form-search" type="search" placeholder="Kiwi Locator" aria-label="Locate"
-                       name="results">
-                <button class="search-btn" type="submit">Search</button>
-            </form>
+            {{ form.hidden_tag() }}
+            <input class="form-search" type="search" placeholder="Kiwi Locator" aria-label="Locate" name="results">
+            <button class="search-btn" type="submit">Search</button>
+        </form>
     </div>
-        <table>
-            {% for note in notes %}
-            <tr>
-                <th class="title">Kiwi</th>
-                <th class="title">Date</th>
-            </tr>
-            <tr>
-                <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a>
-                <td>{{ note.date }}</td>
-                <td><a class="button3" href="{{ url_for('update_note', note_id=note.id) }}">Edit</a>
-                <td>
-                    <form action="{{url_for('delete_note', note_id=note.id)}}" method="post">
+    <table>
+        {% for note in notes %}
+        <tr>
+            <th class="title">Kiwi</th>
+            <th class="title">Date</th>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a>
+            <td>{{ note.date }}</td>
+            <td><a class="button3" href="{{ url_for('update_note', note_id=note.id) }}">Edit</a>
+            <td>
+                <form action="{{url_for('delete_note', note_id=note.id)}}" method="post">
                     <button class="button3" type="submit">Delete</button>
-                    </form>
+                </form>
                 {% else %}
                 <h1 class="title">{{user}}, you have no Kiwis to view</h1>
-            <h2>Create a post to get started</h2>
-                </td>
-                {% endfor %}
-            </tr>
-        </table>
-    </body>
+                <h2>Create a post to get started</h2>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+
 </html>

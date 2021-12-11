@@ -37,7 +37,6 @@
             <li>{{ comment.content }}</li>
             <a class="fa fa-thumbs-up" href="{{ url_for('voteLike', note_id=note.id) }}"></a>
             <a class="fa fa-thumbs-down" href="{{ url_for('voteDislike', note_id=note.id) }}"></a>
-
         {% endfor %}
         </ul>
     {% endif %}

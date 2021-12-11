@@ -112,8 +112,7 @@ visibility: visible;
 /* comments section */
 .commentsection {
 position: absolute;
-  top: 50%;
-  left: 50%;
+  left: 750px;
 }
   {
     width:100%;
@@ -138,4 +137,8 @@ body {
 .RegisterPage{
 float: right;
 }
+.ul {
+font-size: 15px;
+  font-family: Helvetica, sans-serif;
 
+}
