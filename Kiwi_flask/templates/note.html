@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="UNCC Notes App">
         <title>UNCC Notes App - View your Note</title>
-        <!-- styless -->
+        <!-- styles -->
+        <script type="text/javascript" src="static/functions.js"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -65,11 +66,6 @@
     {{ form.submit }}
     </div>
 </form>
-    <script>
-    function myFunction() {
-      document.body.style.backgroundColor = "black";
-    }
-</script>
     </body>
 </html>
 

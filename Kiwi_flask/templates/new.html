@@ -7,6 +7,7 @@
     <meta name="description" content="UNCC Notes App">
     <title>UNCC Notes App - New Note</title>
     <!-- styles -->
+    <script type="text/javascript" src="static/functions.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -16,13 +17,14 @@
     <div class="topnav">
         <nav>
             <a class="fa fa-home" href="{{url_for('index')}}"></a>
-            <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
-            <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
+            <a class="fa fa-briefcase" href="{{url_for('get_notes')}}"></a>
+            <a class="fa fa-pencil" href="{{url_for('new_note')}}"></a>
             {% if user %}
             <div class="topnav-right">
                 <a class="fa fa-moon-o" onclick="myFunction()"></a>
-                <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
-                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
+                <a class="fa fa-user-o" href="{{url_for('get_accounts')}}"></a>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
+            </div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
@@ -55,11 +57,7 @@
                 {% endif %}
             </p>
         </form>
-        </form>
-<script>
-    function myFunction() {
-      document.body.style.backgroundColor = "black";
-    }
-</script>
-    </body>
+    </form>
+</body>
+
 </html>

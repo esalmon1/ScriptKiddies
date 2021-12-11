@@ -6,6 +6,7 @@
         <meta name="description" content="UNCC Notes App">
         <title>UNCC Notes App - View your Notes</title>
         <!-- styles -->
+        <script type="text/javascript" src="static/functions.js"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -55,15 +56,5 @@
             </tr>
             {% endfor %}
         </table>
-
-    <script>
-    function myFunction() {
-      document.body.style.backgroundColor = "black";
-    }
-</script>
-    <title>Javascript Toggle Button | Dark and light mode </title>
-    <div id="toggle">
-    <i class="indicator"></i>
-    </div>
     </body>
 </html>

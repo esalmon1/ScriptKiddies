@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="static/functions.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
 </head>
@@ -78,10 +79,5 @@
                 {{ form.submit }}
             </form>
         </div>
-    <script>
-    function myFunction() {
-      document.body.style.backgroundColor = "black";
-    }
-</script>
     </body>
 </html>

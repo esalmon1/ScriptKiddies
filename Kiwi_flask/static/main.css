@@ -123,4 +123,15 @@ position: absolute;
   }
   span { font-size:150pt; }
 
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+}
+
+.dark-mode {
+  background-color: #282828;
+  color: white;
+}
 
