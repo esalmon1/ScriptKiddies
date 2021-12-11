@@ -35,7 +35,7 @@ class RegisterForm(FlaskForm):
     confirmPassword = PasswordField('Confirm Password', validators=[
         Length(min=6, max=10)
     ])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Sign up')
 
     def validate_email(self, field):
         if db.session.query(User).filter_by(email=field.data).count() != 0:

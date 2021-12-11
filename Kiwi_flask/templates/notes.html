@@ -37,12 +37,17 @@
                 <button class="search-btn" type="submit">Search</button>
             </form>
     </div>
+    {% for note in notes %}
     <h1 class="title">{{user}}, here are your fruity Kiwis!</h1>
         <table>
             <tr>
                 <th class="title">Kiwi</th>
                 <th class="title">Date</th>
             </tr>
+            {% else %}
+            <h1 class="title">{{user}}, you have no Kiwis to view</h1>
+            <h2>Create a post to get started</h2>
+            {% endfor %}
             {% for note in notes %}
             <tr>
                 <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a>

@@ -7,6 +7,7 @@
     <script type="text/javascript" src="static/functions.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
     <body>
         <div class="topnav">
@@ -15,19 +16,19 @@
             <a class="fa fa-home" href="{{url_for('index')}}"></a>
             <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
-            <div class="topnav-right">
-                 <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
-                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
+                <a class="fa fa-power-off" href="{{url_for('logout')}}"></a>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
-            <a href="{{url_for('register')}}">Register</a>
+            <div class="topnav-right">
+                <a class="fa fa-moon-o" onclick="myFunction()"></a>
+            </div>
             {% endif %}
         </nav>
     </div>
-        <h1>Welcome {{user}}to Registration!</h1>
-
-        <h2>Use this page to create your username and password</h2>
+        <img src="kiwiguy.png"/>
+        <div class="RegisterPage">
+        <h1>Join Kiwi today</h1>
         <div class="formwrapper">
             <h2 class="title">Register</h2>
             <form method="POST" action="">
@@ -78,6 +79,10 @@
                 </div>
                 {{ form.submit }}
             </form>
+        </div>
+        <h2>Already have an account?</h2>
+        <td><a class="button3" href="{{ url_for('login') }}">Sign in</a>
+        <td>
         </div>
     </body>
 </html>

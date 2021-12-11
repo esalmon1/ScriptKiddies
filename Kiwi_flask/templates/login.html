@@ -15,17 +15,18 @@
             <a class="fa fa-briefcase"href="{{url_for('get_notes')}}"></a>
             <a class="fa fa-pencil"href="{{url_for('new_note')}}"></a>
             <div class="topnav-right">
-                <a class="fa fa-moon-o" onclick="myFunction()"></a>
                 <a class="fa fa-user-o"href="{{url_for('get_accounts')}}"></a>
                 <a class="fa fa-power-off" href="{{url_for('logout')}}"></a></div>
             {% else %}
             <a href="{{url_for('login')}}">Login</a>
             <a href="{{url_for('register')}}">Register</a>
+            <div class="topnav-right">
+                <a class="fa fa-moon-o" onclick="myFunction()"></a>
+            </div>
             {% endif %}
         </nav>
     </div>
-
-        <h2>Please sign in {% if user %}{{user}}{% endif %}to maintain and organize your notes.</h2>
+        <h2>Welcome back!</h2>
         <div class="formwrapper">
             <h2 class="title">Login</h2>
             <form method="POST" action="/login">

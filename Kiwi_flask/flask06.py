@@ -16,7 +16,7 @@ from flask import session
 from forms import LoginForm
 from models import Comment as Comment
 from forms import RegisterForm, LoginForm, CommentForm, SearchForm, UpdateAccountForm
-
+from flask import *
 from flask_login import current_user
 
 # from flask_socketio import SocketIO, emit
@@ -159,12 +159,13 @@ def register():
 
 @app.route('/notes/delete/<note_id>', methods=['POST'])
 def delete_note(note_id):
-    # check if a user is saved in sessing
+    # check if a user is saved in session
     if session.get('user'):
-        # retreive note from DB
+        # retrieve note from DB
         my_note = db.session.query(Note).filter_by(id=note_id).one()
         db.session.delete(my_note)
         db.session.commit()
+        flash('You were successfully logged in')
     else:
         return redirect(url_for('login'))
     return redirect(url_for('get_notes'))
