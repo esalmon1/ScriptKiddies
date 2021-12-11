@@ -63,7 +63,7 @@ def base():
     form = SearchForm()
     return dict(form=form)
 
-@app.route('/notes/<note_id>/Like')
+@app.route('/notes/<note_id>/like')
 def voteLike(note_id):
     if session.get('user'):
         my_note = db.session.query(Note).filter_by(id=note_id).one()
