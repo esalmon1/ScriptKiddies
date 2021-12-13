@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 </head>
+<body>
 <div class="topnav">
     <nav>
         <a class="fa fa-home" href="{{url_for('index')}}"></a>
@@ -31,7 +32,6 @@
     </nav>
 </div>
 
-<body>
     <div class="searchStuff">
         <form method="POST" action="{{ url_for('search')}}" class="searching">
             {{ form.hidden_tag() }}
@@ -51,7 +51,7 @@
             <td><a class="button3" href="{{ url_for('update_note', note_id=note.id) }}">Edit</a>
             <td>
                 <form action="{{url_for('delete_note', note_id=note.id)}}" method="post">
-                    <button class="button3" type="submit">Delete</button>
+                    <button class="fa fa-trash" type="submit"></button>
                 </form>
                 {% else %}
                 <h1 class="title">{{user}}, you have no Kiwis to view</h1>

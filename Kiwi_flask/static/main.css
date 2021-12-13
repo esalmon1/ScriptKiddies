@@ -124,7 +124,7 @@ position: absolute;
 
 body {
   padding: 25px;
-  background-color: white;
+  background-color: #F5F5F5;
   color: black;
   font-size: 15px;
   font-family: Helvetica, sans-serif;
@@ -142,3 +142,10 @@ font-size: 15px;
   font-family: Helvetica, sans-serif;
 
 }
+.acct {
+font-size: 25px;
+  font-family: Helvetica, sans-serif;
+  color: #787878
+}
+
+
