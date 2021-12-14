@@ -1,0 +1,10 @@
+Status report 5:
+Section 1: This coming week along with finishing the sprint for the week we are going to find a 
+time where we can all meet in the library and work on getting the project started. We want to 
+have a home page made in HTML and get the basics of the project going so that we will not be 
+drowning towards the end of the semester. .
+Section 2: Going to the library this week was really helpful because we made a lot of progress 
+on the MVP unfortunately it was broken by some code changes that were made that made it 
+buggy
+Section 3: This coming week we are going to work on adding more features to the mvp that we 
+have

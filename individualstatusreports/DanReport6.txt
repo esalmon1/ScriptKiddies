@@ -1,0 +1,14 @@
+Section 1: This coming week we are going to work on adding more features to the mvp that we 
+have
+Section 2: I’ve made a lot of progress trying to format code and add things from the flask apps to 
+our mvp. currently we are working on adding the user login and register function. This has been 
+difficult for me because I am behind on the flask apps, and I am continuously running into errors 
+that I am unsure of their origin. I have been spending multiple hours this week working and 
+trying my best to get flask apps done as well as add code to our project. I am at a point where I 
+really need to talk with our TA because my flask won’t run for our project and Is giving me the 
+same consistent errors. Working with this team is hard and frustrating because the one person 
+who’s flask app is working is refusing to do any work on the project because he did a lot of work 
+for the last sprint. Really makes the whole team thing feel like a lot less of a team.
+Section 3: this week We need to work on getting the flask app running and implementing some 
+of the more abstract features to the code. I will be working on our code and making changes all 
+night hoping to make some progress. 
